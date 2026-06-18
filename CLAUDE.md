@@ -8,16 +8,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 [Ethereum Swarm](https://ethswarm.org). A cheatsheet is a dense A4 quick-reference (the
 format that worked well at hackathons) that lives in two forms from **one source**:
 
-1. A **printable PDF** (A4, double-sided where needed) handed out at events.
-2. A **web page** version, hosted on Swarm, with the PDF downloadable from it.
+1. A **printable PDF** (A4, double-sided where needed) handed out at events. **This is the
+   primary product.**
+2. A **thin web page**, hosted on Swarm, that displays the card and always offers the PDF
+   download — not a guide engine.
+
+**The cheatsheet's job is to orient and route, not to re-explain.** Depth lives in the
+official docs; cards send people to `docs.ethswarm.org` (deep-linked, QR-coded) rather than
+duplicating content. Build a bespoke guide **only** where the docs have a real gap and the
+topic is high-traffic — `justdeploy` ("publish a website") is the one proven exception, used
+sparingly, not the template for every topic.
 
 It is one of three complementary DevRel surfaces that cross-reference each other:
 
 | Surface | Repo | Role |
 |---|---|---|
-| **Cheatsheets** (this repo) | `swarm-cheatsheets` | Print-first quick reference. The "what/why + map." |
-| **Web guides** | [`justdeploy`](https://github.com/GasperX93/justdeploy) | Deeper step-by-step walkthroughs (e.g. publish a website). |
+| **Cheatsheets** (this repo) | `swarm-cheatsheets` | Print-first quick reference. The "what/why + map." **Hero.** |
+| **Official docs** | [`docs.ethswarm.org`](https://docs.ethswarm.org) | The depth. Cards route here instead of re-explaining. |
 | **Interactive skills** | [`swarm-quickstart-skills`](https://github.com/ethersphere/swarm-quickstart-skills) | Claude Code skills that *do* the task with you. |
+| **Web guide (sparingly)** | [`justdeploy`](https://github.com/GasperX93/justdeploy) | Bespoke walkthrough only where docs fall short. |
 
 The v1 reference artifact is `dist/swarm-overview-cheatsheet-v1.pdf` (the original
 hand-designed "Swarm Cheatsheet"). Treat it as the **content + visual benchmark** to match,
@@ -57,8 +66,12 @@ swarm-cheatsheets/
 ## Running / generating
 
 No build step to view: open `src/cheatsheets/<topic>/index.html` in a browser, or
-`python3 -m http.server 8080`. PDF generation pipeline is defined in docs/PLAN.md
-(Phase 1) once the HTML→PDF approach is confirmed.
+`python3 -m http.server 8080`.
+
+**Generate the PDFs** (HTML → A4 PDF via headless Chrome): `./scripts-pdf.sh`
+regenerates every card into `dist/`. To export one card by hand: open it in Chrome →
+`⌘P` → Save as PDF → A4 → margins **None** → Background graphics **ON**.
+QR codes render client-side (qrcodejs via CDN); the script waits for them.
 
 ## Related
 

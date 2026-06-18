@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swarm Cheatsheet — Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16140f;          /* near-black text */
+    --accent:#ee7b1a;       /* swarm orange */
+    --accent-deep:#c85f08;
+    --muted:#6b6760;
+    --line:#16140f;         /* box borders */
+    --hair:#d8d4cc;         /* light rule */
+    --bg:#ffffff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:"DM Sans",system-ui,Arial,sans-serif;color:var(--ink);background:#5a5852}
+  code,.mono{font-family:"DM Mono",ui-monospace,Menlo,monospace}
+
+  /* ---- A4 sheet ---- */
+  .sheet{
+    width:210mm;height:297mm;background:var(--bg);
+    padding:9mm 8.5mm;position:relative;overflow:hidden;
+    page-break-after:always;
+  }
+  .sheet:last-child{page-break-after:auto}
+
+  /* screen-only chrome */
+  @media screen{
+    body{padding:18px 0}
+    .sheet{margin:0 auto 18px;box-shadow:0 4px 26px rgba(0,0,0,.45)}
+    .hint{max-width:210mm;margin:0 auto 12px;color:#e9e7e2;font:500 13px/1.5 "DM Sans",sans-serif;padding:0 4px}
+    .hint code{background:#3c3a35;color:#fff;padding:1px 6px;border-radius:4px}
+  }
+  @media print{ .hint{display:none} body{background:#fff} }
+  @page{ size:A4; margin:0 }
+
+  /* ---- header ---- */
+  .top{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:2.5px solid var(--ink);padding-bottom:5px;margin-bottom:7px}
+  .brand{display:flex;align-items:center;gap:7px}
+  .mark{width:24px;height:24px}
+  .brand b{font:700 20px/1 "Space Grotesk",sans-serif;letter-spacing:.2px}
+  .kicker{font:700 11px/1 "DM Mono",monospace;letter-spacing:.32em;color:var(--accent);text-transform:uppercase;padding-bottom:3px}
+  .doctype{text-align:right}
+  .doctype .t{font:700 21px/.95 "Space Grotesk",sans-serif;letter-spacing:.5px}
+  .doctype .s{font:500 9px/1 "DM Mono",monospace;letter-spacing:.34em;color:var(--muted);text-transform:uppercase}
+
+  /* ---- section ---- */
+  h2.sec{font:700 13px/1 "Space Grotesk",sans-serif;margin:9px 0 5px;display:flex;align-items:center;gap:7px}
+  h2.sec::before{content:"";width:9px;height:9px;background:var(--accent);display:inline-block;transform:rotate(45deg)}
+  h2.sec .tldr{font:500 8px/1 "DM Mono",monospace;color:var(--muted);letter-spacing:.2em}
+  .tab{font:700 8px/1 "DM Mono",monospace;letter-spacing:.26em;color:var(--accent-deep);text-transform:uppercase;margin:0 0 4px;display:flex;align-items:center;gap:6px}
+  .tab::before{content:"";width:16px;height:2px;background:var(--accent)}
+
+  p{margin:0 0 5px;font-size:9.3px;line-height:1.42}
+  .box{border:1.6px solid var(--line);padding:7px 9px}
+  .pad{padding:8px 10px}
+
+  /* qr */
+  .qr{width:74px;height:74px}
+  .qr canvas,.qr img{width:74px!important;height:74px!important;display:block}
+
+  /* qr row (front) */
+  .qrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin:7px 0}
+  .qcard{border:1.6px solid var(--line);padding:8px;text-align:center}
+  .qcard .h{font:600 12px/1 "Space Grotesk",sans-serif;margin-bottom:6px}
+  .qcard .qr{margin:0 auto 5px}
+  .qcard .u{font:500 8px/1 "DM Mono",monospace;color:var(--muted)}
+  .qcard .cap{font:700 8px/1 "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px}
+
+  /* build grid */
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px 14px}
+  .grid3 h4{font:700 9px/1.1 "DM Sans",sans-serif;margin:0 0 2px}
+  .grid3 h4 .hash{color:var(--accent-deep)}
+  .grid3 p{font-size:8.4px;line-height:1.34;color:#3a382f;margin:0}
+
+  /* two col */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:7px}
+  ul.tight{margin:0;padding-left:0;list-style:none}
+  ul.tight li{font-size:8.6px;line-height:1.36;margin-bottom:4px;padding-left:11px;position:relative}
+  ul.tight li::before{content:"";position:absolute;left:0;top:5px;width:4px;height:4px;background:var(--ink)}
+  ul.tight li b{font-weight:700}
+
+  /* quickstart */
+  .qs{background:var(--ink);color:#fff;margin-top:9px;padding:9px 11px 10px}
+  .qs .bar{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #3c3a33;padding-bottom:5px;margin-bottom:7px}
+  .qs .bar h3{font:700 14px/1 "Space Grotesk",sans-serif;letter-spacing:.4px;margin:0}
+  .qs .bar .when{font:700 7.6px/1 "DM Mono",monospace;letter-spacing:.22em;color:var(--accent)}
+  .qs .cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px}
+  .qs .num{display:inline-block;background:var(--accent);color:#000;font:700 9px/1 "DM Mono",monospace;padding:2px 5px;margin-right:5px}
+  .qs h5{font:700 9.5px/1.1 "DM Sans",sans-serif;margin:0 0 4px;display:flex;align-items:center}
+  .qs .os{font:600 7.2px/1 "DM Mono",monospace;letter-spacing:.18em;color:#b9b5ac;margin:5px 0 2px;text-transform:uppercase}
+  .qs pre{margin:2px 0;font:500 7.7px/1.45 "DM Mono",monospace;color:#ffd9a8;white-space:pre-wrap;word-break:break-all}
+  .qs .pre-note{font-size:7.4px;color:#b9b5ac;margin-top:4px;line-height:1.3}
+  .qs .journey{font:500 7.8px/1.5 "DM Mono",monospace;color:#fff}
+  .qs .journey b{color:var(--accent)}
+  .qs a{color:#ffd9a8;text-decoration:none}
+
+  /* written-docs strip */
+  .strip{display:flex;align-items:center;gap:10px;border:1.6px solid var(--line);margin-top:8px;padding:7px 9px}
+  .strip .qr{width:58px;height:58px}
+  .strip .qr canvas,.strip .qr img{width:58px!important;height:58px!important}
+  .strip h4{font:700 10px/1.1 "Space Grotesk",sans-serif;margin:0 0 2px}
+  .strip p{font-size:8px;margin:0;color:#3a382f;line-height:1.35}
+  .strip .mono{color:var(--accent-deep);font-weight:500}
+
+  .moreback{border:1.4px dashed var(--ink);text-align:center;font:700 8.5px/1 "DM Mono",monospace;letter-spacing:.12em;padding:6px;margin-top:8px;text-transform:uppercase}
+
+  .foot{position:absolute;left:8.5mm;right:8.5mm;bottom:5mm;display:flex;justify-content:space-between;border-top:1px solid var(--hair);padding-top:4px;font:500 7.4px/1 "DM Mono",monospace;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+
+  /* ---- BACK ---- */
+  .where{display:flex;gap:11px;align-items:center;border:1.6px solid var(--line);padding:9px 11px;margin-bottom:9px}
+  .where .qr{width:66px;height:66px}
+  .where .qr canvas,.where .qr img{width:66px!important;height:66px!important}
+  .where .cap{font:700 8px/1 "DM Mono",monospace;letter-spacing:.26em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:3px}
+  .where h3{font:700 14px/1.05 "Space Grotesk",sans-serif;margin:0 0 3px}
+  .where p{font-size:8.4px;margin:0;color:#3a382f}
+  .lane{font:700 9px/1 "DM Mono",monospace;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;margin:11px 0 5px;border-bottom:1px solid var(--hair);padding-bottom:3px}
+  .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .lcard{border:1.6px solid var(--line);padding:8px 9px;position:relative;min-height:118px}
+  .lcard .qr{width:46px;height:46px;position:absolute;top:7px;right:8px}
+  .lcard .qr canvas,.lcard .qr img{width:46px!important;height:46px!important}
+  .lcard h4{font:700 11px/1.05 "Space Grotesk",sans-serif;margin:0 6px 1px 0;padding-right:50px}
+  .lcard .sub{font:500 7.4px/1 "DM Mono",monospace;color:var(--muted);margin-bottom:5px;padding-right:50px}
+  .lcard ul{margin:0;padding:0;list-style:none}
+  .lcard li{font-size:7.9px;line-height:1.45;padding-left:9px;position:relative;color:#2c2a23}
+  .lcard ul li:nth-child(-n+2){padding-right:50px}
+  .lcard li::before{content:"▸";position:absolute;left:0;color:var(--accent-deep);font-size:7px;top:1px}
+  .lcard li .mono{font-size:7.3px;color:var(--muted)}
+  .lcard .scan{font:700 7px/1 "DM Mono",monospace;letter-spacing:.1em;color:var(--accent-deep);text-transform:uppercase;position:absolute;bottom:6px;left:9px}
+</style>
+</head>
+<body>
+
+<div class="hint">Preview of the <b>Swarm Overview</b> cheatsheet (Phase&nbsp;1, HTML→PDF pipeline). To export: <code>⌘P → Save as PDF → A4 → margins None → Background graphics ON</code>. Or run the headless-Chrome command in <code>docs/PLAN.md</code>.</div>
+
+<!-- ============================ FRONT ============================ -->
+<section class="sheet" id="front">
+  <div class="top">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><g fill="#16140f"><path d="M16 1l6 3.5v7L16 15l-6-3.5v-7z"/><path d="M7.5 16l6 3.5v7L7.5 30l-6-3.5v-7z"/><path d="M24.5 16l6 3.5v7l-6 3.5-6-3.5v-7z"/></g></svg>
+      <b>swarm</b>
+    </div>
+    <div class="kicker">Fullstack Decentralised</div>
+    <div class="doctype"><div class="t">CHEATSHEET</div><div class="s">Front</div></div>
+  </div>
+
+  <h2 class="sec">What is Swarm? <span class="tldr">tl;dr</span></h2>
+  <div class="tab">Unstoppable Storage</div>
+  <p>Swarm is a <b>decentralised storage and communication network</b> run by peer-to-peer <b>Bee nodes</b>. Upload data, get back a <b>content hash</b> — a permanent address derived from the bytes themselves. Anyone with the hash can retrieve the content from any Bee node or public gateway.</p>
+  <p>Storage is bought as <b>postage stamps</b>: prepaid batches purchased with <code>xBZZ</code> on Gnosis Chain. Batches have a TTL and expire unless topped up. If every batch covering a chunk expires, that content can be pruned.</p>
+
+  <div class="qrow">
+    <div class="qcard"><div class="cap">Homepage</div><div class="h">Swarm</div><div class="qr" data-url="https://www.ethswarm.org"></div><div class="u">ethswarm.org</div></div>
+    <div class="qcard"><div class="cap">Docs</div><div class="h">Documentation</div><div class="qr" data-url="https://docs.ethswarm.org"></div><div class="u">docs.ethswarm.org</div></div>
+    <div class="qcard"><div class="cap">Explorer</div><div class="h">SwarmScan</div><div class="qr" data-url="https://swarmscan.io"></div><div class="u">swarmscan.io</div></div>
+  </div>
+
+  <h2 class="sec">What you can build on Swarm</h2>
+  <div class="tab">Build with freedom · Scale without limits</div>
+  <div class="grid3">
+    <div><h4><span class="hash">#</span> File &amp; media storage</h4><p>Fixed, content-addressed URLs for any file — images, video, PDFs, datasets, ML artifacts, NFT assets.</p></div>
+    <div><h4><span class="hash">#</span> Decentralised websites</h4><p>Publish a static front-end straight to the network. No server, no CDN, no DNS lock-in.</p></div>
+    <div><h4><span class="hash">#</span> Blogs &amp; dashboards</h4><p>Stable URLs whose contents update via feeds. Personal blogs, public dashboards, status pages.</p></div>
+    <div><h4><span class="hash">#</span> Live video &amp; streaming</h4><p>Early proof-of-concept work on HLS over Swarm exists — expect to integrate and tune it yourself.</p></div>
+    <div><h4><span class="hash">#</span> Chat, comments &amp; messaging</h4><p>Real-time chat, threaded comments and peer messaging. Real-time delivery needs a GSOC subscription (see back).</p></div>
+    <div><h4><span class="hash">#</span> dApp front-ends</h4><p>Host a static front-end for an Ethereum dApp on Swarm. On-chain contracts with content-addressed UI for a fully decentralised stack.</p></div>
+  </div>
+
+  <div class="two">
+    <div class="box">
+      <h2 class="sec" style="margin:0 0 5px">What Swarm is <i>not</i></h2>
+      <ul class="tight">
+        <li><b>Not a database.</b> Opaque blobs addressed by hash — no queries, no indexing, no search. Model structure in the app layer.</li>
+        <li><b>Not permanent without payment.</b> Content lives only while a valid postage stamp covers its chunks.</li>
+        <li><b>Not instantly consistent.</b> Uploads propagate asynchronously. <code>deferred:true</code> (default) returns once data is pushed; <code>deferred:false</code> waits for read-back.</li>
+        <li><b>Not free to write.</b> Every upload needs a stamp funded with xBZZ. Reads have a small free tier on gateways.</li>
+        <li><b>Not a smart-contract platform.</b> It stores data, it does not execute code. Complements Ethereum, does not replace it.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h2 class="sec" style="margin:0 0 5px">Limitations &amp; gotchas</h2>
+      <ul class="tight">
+        <li><b>Stamp batch expiry.</b> Past expiry, chunks become eligible for pruning — not deleted instantly, but can vanish. Monitor and top up.</li>
+        <li><b>Dynamic pricing.</b> Stamp cost tracks a price that can rise — top up so batches outlast your needs.</li>
+        <li><b>Ultra-light nodes can't upload.</b> Writing needs at least a light node with funds.</li>
+        <li><b>Feed writes are append-only.</b> Each index slot writes once; always resolve the current index before writing.</li>
+        <li><b>Capacity &amp; lifetime are non-deterministic.</b> Both depend on chunking and dynamic pricing — monitor and top up.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="qs">
+    <div class="bar"><h3>QUICKSTART FOR SWARM DEVELOPMENT</h3><div class="when">The recommended way to start · ~5 min</div></div>
+    <div class="cols">
+      <div>
+        <h5><span class="num">1</span> Install Claude Code</h5>
+        <div class="os">macOS / Linux / WSL</div>
+        <pre>curl -fsSL https://claude.ai/install.sh | bash</pre>
+        <div class="os">Windows · PowerShell</div>
+        <pre>irm https://claude.ai/install.ps1 | iex</pre>
+        <div class="pre-note">Docs: code.claude.com/docs</div>
+      </div>
+      <div>
+        <h5><span class="num">2</span> Add the Swarm skills</h5>
+        <pre>claude   # then sign in via browser (OAuth)</pre>
+        <pre>git clone https://github.com/ethersphere/swarm-quickstart-skills.git</pre>
+        <pre>cd swarm-quickstart-skills/.claude
+claude</pre>
+      </div>
+      <div>
+        <h5><span class="num">3</span> Run <span style="color:var(--accent)">/swarm</span> to set up</h5>
+        <div class="pre-note" style="margin-top:0;color:#e8e4db">Runs a guided setup — checks for an existing node and installs/configures Bee if needed.</div>
+        <div class="os">Suggested developer journey</div>
+        <div class="journey"><b>/swarm</b> → /swarm-setup-bee-interactive → /swarm-stamps → /swarm-upload-download | /swarm-host-website | /swarm-blog</div>
+        <div class="pre-note">Type <span class="mono" style="color:#ffd9a8">/swarm</span> anytime for the full menu.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="strip">
+    <div class="qr" data-url="https://justdeploy.bzz.link"></div>
+    <div>
+      <h4>Prefer written docs? → <span class="mono">justdeploy.bzz.link</span></h4>
+      <p>Step-by-step guides for getting started on Swarm — Bee node install, funding, site hosting — with beginner, intermediate and advanced tracks. Mirror: <span class="mono">justdeploy.eth.limo</span></p>
+    </div>
+  </div>
+
+  <div class="moreback">▸ More on the back: developer URLs, examples, network tools, community ▸</div>
+
+  <div class="foot"><span>Swarm · Cheatsheet / Front</span><span>v1 · ethswarm.org</span></div>
+</section>
+
+<!-- ============================ BACK ============================ -->
+<section class="sheet" id="back">
+  <div class="top">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><g fill="#16140f"><path d="M16 1l6 3.5v7L16 15l-6-3.5v-7z"/><path d="M7.5 16l6 3.5v7L7.5 30l-6-3.5v-7z"/><path d="M24.5 16l6 3.5v7l-6 3.5-6-3.5v-7z"/></g></svg>
+      <b>swarm</b>
+    </div>
+    <div class="kicker">Fullstack Decentralised</div>
+    <div class="doctype"><div class="t">BUILD LINKS</div><div class="s">Back</div></div>
+  </div>
+
+  <div class="where">
+    <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/resources"></div>
+    <div>
+      <div class="cap">Swarm Developer Resources</div>
+      <h3>docs.ethswarm.org/docs/develop/resources</h3>
+      <p>One curated landing page linking every category below. Bookmark it — links stay updated online, so this printed sheet keeps working.</p>
+    </div>
+  </div>
+
+  <div class="lane">Learn</div>
+  <div class="cards3">
+    <div class="lcard">
+      <h4>Get Started</h4><div class="sub">your first 30 minutes</div>
+      <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/introduction"></div>
+      <ul>
+        <li>What is Swarm <span class="mono">/concepts/what-is-swarm</span></li>
+        <li>Developer intro <span class="mono">/develop/introduction</span></li>
+        <li>Bee node quick-start <span class="mono">/bee/installation/quick-start</span></li>
+        <li>Swarm papers <span class="mono">papers.ethswarm.org</span></li>
+      </ul>
+      <div class="scan">Scan → get-started hub</div>
+    </div>
+    <div class="lcard">
+      <h4>Key Concepts</h4><div class="sub">how it actually works</div>
+      <div class="qr" data-url="https://docs.ethswarm.org/docs/concepts/DISC"></div>
+      <ul>
+        <li>DISC <span class="mono">/concepts/DISC</span></li>
+        <li>Incentives &amp; BZZ <span class="mono">/concepts/incentives/overview</span></li>
+        <li>Postage stamps <span class="mono">/.../buy-a-stamp-batch</span></li>
+        <li>Feeds · Manifests · Chunk types</li>
+      </ul>
+      <div class="scan">Scan → deep-dive on concepts</div>
+    </div>
+    <div class="lcard">
+      <h4>Developer Guides</h4><div class="sub">recipes for common builds</div>
+      <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/upload-and-download"></div>
+      <ul>
+        <li>Upload &amp; download <span class="mono">/develop/upload-and-download</span></li>
+        <li>Host a website <span class="mono">/develop/host-your-website</span></li>
+        <li>Routing · Dynamic content (feeds)</li>
+        <li>Multi-author blog · Access control (ACT)</li>
+      </ul>
+      <div class="scan">Scan → all developer guides</div>
+    </div>
+  </div>
+
+  <div class="lane">Examples</div>
+  <div class="cards3">
+    <div class="lcard">
+      <h4>Publishing &amp; Websites</h4><div class="sub">static sites, blogs, file uploads</div>
+      <div class="qr" data-url="https://github.com/ethersphere/examples"></div>
+      <ul>
+        <li>upload-react <span class="mono">ethersphere/examples-js</span></li>
+        <li>Simple Blog <span class="mono">ethersphere/examples</span></li>
+        <li>Basic Static Website <span class="mono">ethersphere/examples</span></li>
+      </ul>
+      <div class="scan">Scan → more publishing examples</div>
+    </div>
+    <div class="lcard">
+      <h4>Streaming</h4><div class="sub">early HLS-over-Swarm work</div>
+      <div class="qr" data-url="https://github.com/Solar-Punk-Ltd/swarm-stream-react-example"></div>
+      <ul>
+        <li>Stream React example <span class="mono">Solar-Punk-Ltd</span></li>
+        <li>Stream JS library <span class="mono">swarm-stream-js-lib</span></li>
+        <li>Reference: feeds <span class="mono">/develop/dynamic-content</span></li>
+      </ul>
+      <div class="scan">Scan → streaming repo</div>
+    </div>
+    <div class="lcard">
+      <h4>Messaging &amp; Chat</h4><div class="sub">PSS &amp; GSOC patterns</div>
+      <div class="qr" data-url="https://github.com/Solar-Punk-Ltd/swarm-chat-react-example"></div>
+      <ul>
+        <li>Chat React example <span class="mono">Solar-Punk-Ltd</span></li>
+        <li>Chat JS <span class="mono">swarm-chat-js</span></li>
+        <li>PSS · GSOC <span class="mono">/develop/.../pss · /gsoc</span></li>
+      </ul>
+      <div class="scan">Scan → chat repo</div>
+    </div>
+  </div>
+
+  <div class="lane">Tools</div>
+  <div class="cards3">
+    <div class="lcard">
+      <h4>SDKs &amp; APIs</h4><div class="sub">talk to Bee from your code</div>
+      <div class="qr" data-url="https://bee-js.ethswarm.org"></div>
+      <ul>
+        <li>bee-js <span class="mono">bee-js.ethswarm.org</span></li>
+        <li>Bee HTTP API <span class="mono">docs.ethswarm.org/api</span></li>
+        <li>swarm-cli · Swarm MCP <span class="mono">ethersphere/swarm-mcp</span></li>
+      </ul>
+      <div class="scan">Scan → bee-js docs</div>
+    </div>
+    <div class="lcard">
+      <h4>Gateways &amp; Deploy</h4><div class="sub">ship &amp; inspect</div>
+      <div class="qr" data-url="https://app.ethswarm.org"></div>
+      <ul>
+        <li>Beeport <span class="mono">app.ethswarm.org</span></li>
+        <li>Public gateway <span class="mono">gateway.ethswarm.org</span></li>
+        <li>Local test network · SwarmScan</li>
+      </ul>
+      <div class="scan">Scan → deploy &amp; gateway</div>
+    </div>
+    <div class="lcard">
+      <h4>Community &amp; Support</h4><div class="sub">stuck? ask here first</div>
+      <div class="qr" data-url="https://discord.ethswarm.org"></div>
+      <ul>
+        <li>Discord <span class="mono">discord.ethswarm.org</span></li>
+        <li>Bee FAQ <span class="mono">/docs/bee/bee-faq</span></li>
+        <li>GitHub · Blog <span class="mono">ethersphere · blog.ethswarm.org</span></li>
+      </ul>
+      <div class="scan">Scan → join Discord</div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Swarm · Build Links / Back · docs.ethswarm.org/docs/develop/resources</span><span>Verified: Bee 2.8.0 · bee-js 12.x · swarm-cli 3.x · print A4 double-sided</span></div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  function draw(){
+    if(typeof QRCode==="undefined"){return setTimeout(draw,120)}
+    document.querySelectorAll('.qr[data-url]').forEach(function(el){
+      if(el.dataset.done) return; el.dataset.done="1";
+      var s = el.classList.contains('qr') ? (el.offsetWidth||74) : 74;
+      new QRCode(el,{text:el.dataset.url,width:s,height:s,colorDark:"#16140f",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});
+    });
+  }
+  draw();
+</script>
+</body>
+</html>
