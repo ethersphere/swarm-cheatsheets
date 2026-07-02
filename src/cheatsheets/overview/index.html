@@ -20,6 +20,9 @@
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
+  /* links inherit the card's look; print stays identical, PDF gets link annotations */
+  a{color:inherit;text-decoration:none}
+  @media screen{ a[href]:hover{color:var(--accent-deep);text-decoration:underline} }
   body{font-family:"DM Sans",system-ui,Arial,sans-serif;color:var(--ink);background:#5a5852}
   code,.mono{font-family:"DM Mono",ui-monospace,Menlo,monospace}
   code{background:#faf0e3;padding:0 3px}
@@ -178,9 +181,9 @@
   </div>
 
   <div class="qrow">
-    <div class="qcard"><div class="h">Homepage</div><div class="qr" data-url="https://www.ethswarm.org"></div><div class="name">Swarm</div><div class="u">ethswarm.org</div></div>
-    <div class="qcard"><div class="h">Docs</div><div class="qr" data-url="https://docs.ethswarm.org"></div><div class="name">Documentation</div><div class="u">docs.ethswarm.org</div></div>
-    <div class="qcard"><div class="h">Explorer</div><div class="qr" data-url="https://swarmscan.io"></div><div class="name">SwarmScan</div><div class="u">swarmscan.io</div></div>
+    <div class="qcard"><div class="h">Homepage</div><div class="qr" data-url="https://www.ethswarm.org"></div><a href="https://www.ethswarm.org"><div class="name">Swarm</div><div class="u">ethswarm.org</div></a></div>
+    <div class="qcard"><div class="h">Docs</div><div class="qr" data-url="https://docs.ethswarm.org"></div><a href="https://docs.ethswarm.org"><div class="name">Documentation</div><div class="u">docs.ethswarm.org</div></a></div>
+    <div class="qcard"><div class="h">Explorer</div><div class="qr" data-url="https://swarmscan.io"></div><a href="https://swarmscan.io"><div class="name">SwarmScan</div><div class="u">swarmscan.io</div></a></div>
   </div>
 
   <div class="lbox">
@@ -229,7 +232,7 @@
         <div class="cmd">$ curl -fsSL https://claude.ai/install.sh | bash</div>
         <div class="os">Windows · PowerShell</div>
         <div class="cmd">$ irm https://claude.ai/install.ps1 | iex</div>
-        <div class="pre-note">Docs: <b>code.claude.com/docs</b></div>
+        <div class="pre-note">Docs: <a href="https://code.claude.com/docs"><b>code.claude.com/docs</b></a></div>
       </div>
       <div>
         <h5><span class="num">2</span><span>Add the Swarm skills</span></h5>
@@ -251,15 +254,15 @@ $ claude</div>
       <div class="door">
         <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/introduction"></div>
         <div>
-          <h4>Prefer written docs? → <span class="mono">docs.ethswarm.org</span></h4>
+          <h4>Prefer written docs? → <a class="mono" href="https://docs.ethswarm.org/docs/develop/introduction">docs.ethswarm.org</a></h4>
           <p>The official developer docs — concepts, Bee install, stamps, guides. Full link map on the <b>back of this card</b>.</p>
         </div>
       </div>
       <div class="door">
         <div class="qr" data-url="https://justdeploy.bzz.link"></div>
         <div>
-          <h4>Just shipping a website? → <span class="mono">justdeploy.bzz.link</span></h4>
-          <p>Guided deploy walkthrough — <b>Browser</b> (Beeport, no install) · <b>Desktop app</b> · <b>CLI</b> (full Bee install, stamps &amp; top-up). Mirror: <span class="mono">justdeploy.eth.limo</span></p>
+          <h4>Just shipping a website? → <a class="mono" href="https://justdeploy.bzz.link">justdeploy.bzz.link</a></h4>
+          <p>Guided deploy walkthrough — <b>Browser</b> (Beeport, no install) · <b>Desktop app</b> · <b>CLI</b> (full Bee install, stamps &amp; top-up). Mirror: <a class="mono" href="https://justdeploy.eth.limo">justdeploy.eth.limo</a></p>
         </div>
       </div>
     </div>
@@ -287,7 +290,7 @@ $ claude</div>
     <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/resources"></div>
     <div>
       <div class="cap">Swarm Developer Resources</div>
-      <h3>docs.ethswarm.org/docs/develop/resources</h3>
+      <h3><a href="https://docs.ethswarm.org/docs/develop/resources">docs.ethswarm.org/docs/develop/resources</a></h3>
       <p>One curated landing page linking every category below. Bookmark it — links stay updated online, so this printed sheet keeps working.</p>
     </div>
     <svg class="deco" viewBox="0 0 1115 1115" aria-hidden="true" fill="#ee7b1a"><path d="M0 665.01V965l260 150 260-150.01V664.96L260 515 0 665.01z"/><path d="M855 515 595 665v299.99L855 1115l260-150.01V664.95L855 515z"/><path d="M817.32 300.27l-129.91-75.25-.13-149.98L557.5 0 297.68 150.01V450L557.5 600l259.82-150V300.27z"/><path d="m817.32 300.27 129.91-75.3V75L817.52 0 687.28 75.04l130.24 74.83-.2 150.4z"/></svg>
@@ -299,11 +302,11 @@ $ claude</div>
       <h4>Get Started</h4><div class="sub">your first 30 minutes</div>
       <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/introduction"></div>
       <ul>
-        <li><b>What is Swarm</b> <span class="mono">/concepts/what-is-swarm</span></li>
-        <li><b>Developer intro</b> <span class="mono">/develop/introduction</span></li>
-        <li><b>Bee node quick-start</b> <span class="mono">/bee/installation/quick-start</span></li>
-        <li><b>Full install guide</b> <span class="mono">/bee/installation/getting-started</span></li>
-        <li><b>Swarm papers</b> <span class="mono">papers.ethswarm.org</span></li>
+        <li><a href="https://docs.ethswarm.org/docs/concepts/what-is-swarm"><b>What is Swarm</b> <span class="mono">/concepts/what-is-swarm</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/introduction"><b>Developer intro</b> <span class="mono">/develop/introduction</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/bee/installation/quick-start"><b>Bee node quick-start</b> <span class="mono">/bee/installation/quick-start</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/bee/installation/getting-started"><b>Full install guide</b> <span class="mono">/bee/installation/getting-started</span></a></li>
+        <li><a href="https://papers.ethswarm.org"><b>Swarm papers</b> <span class="mono">papers.ethswarm.org</span></a></li>
       </ul>
       <div class="scan">Scan QR → get-started hub</div>
     </div>
@@ -311,11 +314,11 @@ $ claude</div>
       <h4>Key Concepts</h4><div class="sub">how it actually works</div>
       <div class="qr" data-url="https://docs.ethswarm.org/docs/concepts/DISC"></div>
       <ul>
-        <li><b>DISC</b> <span class="mono">/concepts/DISC</span></li>
-        <li><b>Incentives &amp; BZZ</b> <span class="mono">/concepts/incentives/overview</span></li>
-        <li><b>Postage stamps</b> <span class="mono">/.../buy-a-stamp-batch</span></li>
-        <li><b>Feeds</b> <span class="mono">/.../tools-and-features/feeds</span></li>
-        <li><b>Manifests</b> <span class="mono">/.../manifests</span> · <b>Chunk types</b> <span class="mono">/.../chunk-types</span></li>
+        <li><a href="https://docs.ethswarm.org/docs/concepts/DISC"><b>DISC</b> <span class="mono">/concepts/DISC</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/concepts/incentives/overview"><b>Incentives &amp; BZZ</b> <span class="mono">/concepts/incentives/overview</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/tools-and-features/buy-a-stamp-batch"><b>Postage stamps</b> <span class="mono">/.../buy-a-stamp-batch</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/tools-and-features/feeds"><b>Feeds</b> <span class="mono">/.../tools-and-features/feeds</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/tools-and-features/manifests"><b>Manifests</b> <span class="mono">/.../manifests</span></a> · <a href="https://docs.ethswarm.org/docs/develop/tools-and-features/chunk-types"><b>Chunk types</b> <span class="mono">/.../chunk-types</span></a></li>
       </ul>
       <div class="scan">Scan QR → deep-dive on concepts</div>
     </div>
@@ -323,12 +326,12 @@ $ claude</div>
       <h4>Developer Guides</h4><div class="sub">recipes for common builds</div>
       <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/upload-and-download"></div>
       <ul>
-        <li><b>Upload &amp; download</b> <span class="mono">/develop/upload-and-download</span></li>
-        <li><b>Host a website</b> <span class="mono">/develop/host-your-website</span></li>
-        <li><b>Files &amp; directories</b> <span class="mono">/develop/files</span></li>
-        <li><b>Routing for SPAs</b> <span class="mono">/develop/routing</span></li>
-        <li><b>Dynamic content (feeds)</b> <span class="mono">/develop/dynamic-content</span></li>
-        <li><b>Multi-author blog · Access control (ACT)</b></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/upload-and-download"><b>Upload &amp; download</b> <span class="mono">/develop/upload-and-download</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/host-your-website"><b>Host a website</b> <span class="mono">/develop/host-your-website</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/files"><b>Files &amp; directories</b> <span class="mono">/develop/files</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/routing"><b>Routing for SPAs</b> <span class="mono">/develop/routing</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/dynamic-content"><b>Dynamic content (feeds)</b> <span class="mono">/develop/dynamic-content</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/multi-author-blog"><b>Multi-author blog</b></a> · <a href="https://docs.ethswarm.org/docs/develop/act"><b>Access control (ACT)</b></a></li>
       </ul>
       <div class="scan">Scan QR → all developer guides</div>
     </div>
@@ -340,9 +343,9 @@ $ claude</div>
       <h4>Publishing &amp; Websites</h4><div class="sub">static sites, blogs, file uploads</div>
       <div class="qr" data-url="https://github.com/ethersphere/examples"></div>
       <ul>
-        <li><b>upload-react</b> <span class="mono">ethersphere/examples-js</span></li>
-        <li><b>Simple Blog</b> <span class="mono">ethersphere/examples</span></li>
-        <li><b>Basic Static Website</b> <span class="mono">ethersphere/examples</span></li>
+        <li><a href="https://github.com/ethersphere/examples-js"><b>upload-react</b> <span class="mono">ethersphere/examples-js</span></a></li>
+        <li><a href="https://github.com/ethersphere/examples"><b>Simple Blog</b> <span class="mono">ethersphere/examples</span></a></li>
+        <li><a href="https://github.com/ethersphere/examples"><b>Basic Static Website</b> <span class="mono">ethersphere/examples</span></a></li>
       </ul>
       <div class="scan">Scan QR → more publishing examples</div>
     </div>
@@ -350,9 +353,9 @@ $ claude</div>
       <h4>Streaming</h4><div class="sub">early HLS-over-Swarm work</div>
       <div class="qr" data-url="https://github.com/Solar-Punk-Ltd/swarm-stream-react-example"></div>
       <ul>
-        <li><b>Stream React example</b> <span class="mono">Solar-Punk-Ltd</span></li>
-        <li><b>Stream JS library</b> <span class="mono">swarm-stream-js-lib</span></li>
-        <li><b>Reference: feeds</b> <span class="mono">/develop/dynamic-content</span></li>
+        <li><a href="https://github.com/Solar-Punk-Ltd/swarm-stream-react-example"><b>Stream React example</b> <span class="mono">Solar-Punk-Ltd</span></a></li>
+        <li><a href="https://github.com/Solar-Punk-Ltd/swarm-stream-js"><b>Stream JS library</b> <span class="mono">swarm-stream-js</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/dynamic-content"><b>Reference: feeds</b> <span class="mono">/develop/dynamic-content</span></a></li>
       </ul>
       <div class="scan">Scan QR → streaming repo</div>
     </div>
@@ -360,10 +363,10 @@ $ claude</div>
       <h4>Messaging &amp; Chat</h4><div class="sub">PSS &amp; GSOC patterns</div>
       <div class="qr" data-url="https://github.com/Solar-Punk-Ltd/swarm-chat-react-example"></div>
       <ul>
-        <li><b>Chat React example</b> <span class="mono">Solar-Punk-Ltd</span></li>
-        <li><b>Chat JS</b> <span class="mono">swarm-chat-js</span></li>
-        <li><b>PSS messaging</b> <span class="mono">/.../tools-and-features/pss</span></li>
-        <li><b>GSOC messaging</b> <span class="mono">/.../tools-and-features/gsoc</span></li>
+        <li><a href="https://github.com/Solar-Punk-Ltd/swarm-chat-react-example"><b>Chat React example</b> <span class="mono">Solar-Punk-Ltd</span></a></li>
+        <li><a href="https://github.com/Solar-Punk-Ltd/swarm-chat-js"><b>Chat JS</b> <span class="mono">swarm-chat-js</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/tools-and-features/pss"><b>PSS messaging</b> <span class="mono">/.../tools-and-features/pss</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/tools-and-features/gsoc"><b>GSOC messaging</b> <span class="mono">/.../tools-and-features/gsoc</span></a></li>
       </ul>
       <div class="scan">Scan QR → chat repo</div>
     </div>
@@ -375,10 +378,10 @@ $ claude</div>
       <h4>SDKs &amp; APIs</h4><div class="sub">talk to Bee from your code</div>
       <div class="qr" data-url="https://bee-js.ethswarm.org"></div>
       <ul>
-        <li><b>bee-js</b> <span class="mono">bee-js.ethswarm.org</span></li>
-        <li><b>Bee HTTP API</b> <span class="mono">docs.ethswarm.org/api</span></li>
-        <li><b>swarm-cli · Swarm MCP</b> <span class="mono">ethersphere/swarm-mcp</span></li>
-        <li><b>Bee (Go source)</b> <span class="mono">ethersphere/bee</span></li>
+        <li><a href="https://bee-js.ethswarm.org"><b>bee-js</b> <span class="mono">bee-js.ethswarm.org</span></a></li>
+        <li><a href="https://docs.ethswarm.org/api"><b>Bee HTTP API</b> <span class="mono">docs.ethswarm.org/api</span></a></li>
+        <li><a href="https://github.com/ethersphere/swarm-cli"><b>swarm-cli</b></a> · <a href="https://github.com/ethersphere/swarm-mcp"><b>Swarm MCP</b> <span class="mono">ethersphere/swarm-mcp</span></a></li>
+        <li><a href="https://github.com/ethersphere/bee"><b>Bee (Go source)</b> <span class="mono">ethersphere/bee</span></a></li>
       </ul>
       <div class="scan">Scan QR → bee-js docs</div>
     </div>
@@ -386,10 +389,10 @@ $ claude</div>
       <h4>Gateways &amp; Deploy</h4><div class="sub">ship &amp; inspect</div>
       <div class="qr" data-url="https://beeport.ethswarm.org"></div>
       <ul>
-        <li><b>Beeport</b> <span class="mono">beeport.ethswarm.org</span></li>
-        <li><b>Public gateway</b> <span class="mono">gateway.ethswarm.org</span></li>
-        <li><b>Local test network</b> <span class="mono">/.../starting-a-test-network</span></li>
-        <li><b>SwarmScan</b> <span class="mono">swarmscan.io</span></li>
+        <li><a href="https://beeport.ethswarm.org"><b>Beeport</b> <span class="mono">beeport.ethswarm.org</span></a></li>
+        <li><a href="https://gateway.ethswarm.org"><b>Public gateway</b> <span class="mono">gateway.ethswarm.org</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/tools-and-features/starting-a-test-network"><b>Local test network</b> <span class="mono">/.../starting-a-test-network</span></a></li>
+        <li><a href="https://swarmscan.io"><b>SwarmScan</b> <span class="mono">swarmscan.io</span></a></li>
       </ul>
       <div class="scan">Scan QR → deploy &amp; gateway</div>
     </div>
@@ -397,11 +400,11 @@ $ claude</div>
       <h4>Community &amp; Support</h4><div class="sub">stuck? ask here first</div>
       <div class="qr" data-url="https://discord.ethswarm.org"></div>
       <ul>
-        <li><b>Discord</b> <span class="mono">discord.ethswarm.org</span></li>
-        <li><b>Docs home</b> <span class="mono">docs.ethswarm.org</span></li>
-        <li><b>Bee FAQ</b> <span class="mono">/docs/bee/bee-faq</span></li>
-        <li><b>GitHub org</b> <span class="mono">github.com/ethersphere</span></li>
-        <li><b>Foundation blog</b> <span class="mono">blog.ethswarm.org</span></li>
+        <li><a href="https://discord.ethswarm.org"><b>Discord</b> <span class="mono">discord.ethswarm.org</span></a></li>
+        <li><a href="https://docs.ethswarm.org"><b>Docs home</b> <span class="mono">docs.ethswarm.org</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/bee/bee-faq"><b>Bee FAQ</b> <span class="mono">/docs/bee/bee-faq</span></a></li>
+        <li><a href="https://github.com/ethersphere"><b>GitHub org</b> <span class="mono">github.com/ethersphere</span></a></li>
+        <li><a href="https://blog.ethswarm.org"><b>Foundation blog</b> <span class="mono">blog.ethswarm.org</span></a></li>
       </ul>
       <div class="scan">Scan QR → join Discord</div>
     </div>
@@ -414,9 +417,15 @@ $ claude</div>
 <script>
   // Render QRs at 4x their display size (CSS scales them back down) so they
   // stay crisp when the page is printed at 300dpi instead of screen 96dpi.
+  // Each QR is wrapped in an anchor so it's clickable on the web page and
+  // becomes a link annotation in the exported PDF.
   document.querySelectorAll('.qr[data-url]').forEach(function(el){
     var s = (el.offsetWidth||74)*4;
     new QRCode(el,{text:el.dataset.url,width:s,height:s,colorDark:"#16140f",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});
+    var a = document.createElement('a');
+    a.href = el.dataset.url;
+    while(el.firstChild) a.appendChild(el.firstChild);
+    el.appendChild(a);
   });
   // Signal readiness for the PDF script: fonts loaded + all QRs drawn.
   document.fonts.ready.then(function(){ document.documentElement.dataset.ready = "1"; });
