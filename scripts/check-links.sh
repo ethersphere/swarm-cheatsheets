@@ -30,6 +30,21 @@ while IFS= read -r url; do
   fi
 done <<< "$urls"
 
+# The install command pins a Bee release tag (TAG=vX.Y.Z). Verify the tag
+# actually exists — a card printed before the release ships a broken command.
+tags=$(grep -rhoE 'TAG=v[0-9]+\.[0-9]+\.[0-9]+' "$ROOT"/src/cheatsheets/*/index.html | sed 's/TAG=//' | sort -u)
+while IFS= read -r tag; do
+  [[ -z "$tag" ]] && continue
+  code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 \
+    "https://api.github.com/repos/ethersphere/bee/releases/tags/$tag" || true)
+  if [[ "${code:-000}" == "200" ]]; then
+    echo "ok      bee release $tag exists"
+  else
+    echo "BROKEN  bee release $tag NOT published yet — do not print until it is"
+    fail=1
+  fi
+done <<< "$tags"
+
 if [[ $fail -ne 0 ]]; then
   echo; echo "Broken links found — a printed card would send people to a dead page." >&2
   exit 1
