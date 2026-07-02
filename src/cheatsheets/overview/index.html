@@ -236,7 +236,7 @@
         <li><b>Not a database.</b> Opaque blobs addressed by hash — no queries, no indexing, no search. Model structure in the app layer.</li>
         <li><b>Not permanent without payment.</b> Content lives only while a valid postage stamp covers its chunks.</li>
         <li><b>Not instantly consistent.</b> Uploads propagate asynchronously. <code>deferred:true</code> (default) returns once data is pushed; <code>deferred:false</code> waits for read-back.</li>
-        <li><b>Not free to write.</b> Every upload needs a stamp funded with xBZZ. Reads have a small free tier on gateways.</li>
+        <li><b>Not free to write.</b> Every upload needs a funded light node and a stamp paid in xBZZ. Reads have a small free tier on gateways.</li>
         <li><b>Not a smart-contract platform.</b> It stores data, it does not execute code. Complements Ethereum, does not replace it.</li>
       </ul>
     </div>
@@ -245,7 +245,6 @@
       <ul class="tight">
         <li><b>Stamp batch expiry.</b> Past expiry, chunks become eligible for pruning — not deleted instantly, but can vanish. Monitor and top up.</li>
         <li><b>Dynamic pricing.</b> Stamp cost tracks a price that can rise — top up so batches outlast your needs.</li>
-        <li><b>Ultra-light nodes can't upload.</b> Writing needs at least a light node with funds.</li>
         <li><b>Feed writes are append-only.</b> Each index slot writes once; always resolve the current index before writing.</li>
         <li><b>Feed slots hold ≤ 4 KB.</b> For larger payloads, upload as a file first, then write the reference into the feed.</li>
         <li><b>The public gateway blocks unreviewed sites.</b> A fresh upload can show "Forbidden" — view it at <span class="mono">bzz.limo/bzz/&lt;hash&gt;/</span> or via your own node.</li>
