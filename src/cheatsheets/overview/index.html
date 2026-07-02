@@ -117,15 +117,15 @@
   .qs .journey{font:500 9px/1.65 "DM Mono",monospace}
   .qs .journey b{color:var(--accent-deep);font-weight:700}
 
-  /* two-door strip — gray band inside the quickstart frame: written docs | ship a website */
-  .qs .strip{background:var(--paper);border-top:1px solid #e2ddd4;display:grid;grid-template-columns:1fr 1.08fr;gap:14px;padding:8px 12px}
-  .strip .door{display:flex;align-items:center;gap:10px}
-  .strip .door+.door{border-left:1px solid #e2ddd4;padding-left:14px}
+  /* three-door strip — gray band inside the quickstart frame: read docs | fund node | ship a website */
+  .qs .strip{background:var(--paper);border-top:1px solid #e2ddd4;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:8px 12px}
+  .strip .door{display:flex;align-items:center;gap:9px}
+  .strip .door+.door{border-left:1px solid #e2ddd4;padding-left:12px}
   .strip .qr{width:54px;height:54px;flex:none}
   .strip .qr canvas,.strip .qr img{width:54px!important;height:54px!important}
-  .strip h4{font:700 10.5px/1.15 "Space Grotesk",sans-serif;margin:0 0 3px}
-  .strip h4 .mono{background:none;color:var(--accent-deep)}
-  .strip p{font-size:8.4px;margin:0;color:#3a382f;line-height:1.45}
+  .strip h4{font:700 10px/1.2 "Space Grotesk",sans-serif;margin:0 0 3px}
+  .strip h4 .mono,.strip h4 a{background:none;color:var(--accent-deep)}
+  .strip p{font-size:8.2px;margin:0;color:#3a382f;line-height:1.45}
   .strip .mono{color:var(--accent-deep);font-weight:500}
 
   .moreback{border:2px dashed var(--ink);text-align:center;font:700 10px/1 "DM Mono",monospace;letter-spacing:.14em;padding:6px;margin-top:8px;text-transform:none}
@@ -261,8 +261,7 @@ $ claude</div>
       </div>
       <div>
         <h5><span class="num">3</span><span>Run <span class="cmd-name">/swarm</span> to set up</span></h5>
-        <div class="pre-note" style="margin-top:0">Runs a guided setup — checks for an existing node and installs/configures Bee if needed.</div>
-        <div class="pre-note"><b>Fund the node</b> (it won't run without funds) from any EVM chain, any token: <a class="mono" href="https://fund.ethswarm.org" style="color:var(--accent-deep)">fund.ethswarm.org</a></div>
+        <div class="pre-note" style="margin-top:0">Runs a guided setup — checks for an existing node and installs/configures Bee if needed. Then <b>fund the node</b> — see below ↓</div>
         <div class="jhead">↳ Suggested Developer Journey</div>
         <div class="journey"><b>/swarm</b> → /swarm-setup-bee-interactive → /swarm-stamps → /swarm-upload-download | /swarm-host-website | /swarm-blog</div>
       </div>
@@ -272,14 +271,21 @@ $ claude</div>
         <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/introduction"></div>
         <div>
           <h4>Prefer written docs? → <a class="mono" href="https://docs.ethswarm.org/docs/develop/introduction">docs.ethswarm.org</a></h4>
-          <p>The official developer docs — concepts, Bee install, stamps, guides. Full link map on the <b>back of this card</b>.</p>
+          <p>The official developer docs — concepts, install, stamps, guides. Full link map on the <b>back of this card</b>.</p>
+        </div>
+      </div>
+      <div class="door">
+        <div class="qr" data-url="https://fund.ethswarm.org"></div>
+        <div>
+          <h4>Fund your node → <a class="mono" href="https://fund.ethswarm.org">fund.ethswarm.org</a></h4>
+          <p><b>A node without funds won't run.</b> Top it up on Gnosis from <b>any EVM chain, any token</b> — one transaction.</p>
         </div>
       </div>
       <div class="door">
         <div class="qr" data-url="https://justdeploy.bzz.link"></div>
         <div>
-          <h4>Just shipping a website? → <a class="mono" href="https://justdeploy.bzz.link">justdeploy.bzz.link</a></h4>
-          <p>Guided deploy walkthrough — <b>Browser</b> (Beeport, no install) · <b>Desktop app</b> · <b>CLI</b> (full Bee install, stamps &amp; top-up). Mirror: <a class="mono" href="https://justdeploy.eth.limo">justdeploy.eth.limo</a></p>
+          <h4>Shipping a website? → <a class="mono" href="https://justdeploy.bzz.link">justdeploy.bzz.link</a></h4>
+          <p>Guided deploy walkthrough — <b>Browser</b> · <b>Desktop app</b> · <b>CLI</b>. Mirror: <a class="mono" href="https://justdeploy.eth.limo">justdeploy.eth.limo</a></p>
         </div>
       </div>
     </div>
