@@ -62,7 +62,7 @@
   .toprule{height:3px;background:linear-gradient(90deg,var(--accent) 0 38%,var(--ink) 38% 100%)}
 
   /* ---- legend box: heading straddles the top border, double rule to the right ---- */
-  .lbox{border:2px solid var(--line);position:relative;padding:11px 12px 9px;margin-top:15px}
+  .lbox{border:2px solid var(--line);position:relative;padding:11px 12px 9px;margin-top:13px}
   .leg{position:absolute;left:0;right:0;top:0;transform:translateY(-50%);display:flex;align-items:center;padding-left:16px}
   .leg .lt{background:var(--bg);display:inline-flex;align-items:center;gap:8px;padding:0 10px 0 8px;font:700 15px/1.1 "Space Grotesk",sans-serif;white-space:nowrap}
   .leg .lt::before{content:"";width:9px;height:9px;background:var(--accent);flex:none}
@@ -79,11 +79,11 @@
   .qr canvas,.qr img{display:block;margin:0 auto}
 
   /* qr row (front) */
-  .qrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0 0}
-  .qcard{border:2px solid var(--line);padding:8px 8px 7px;text-align:center}
-  .qcard .h{font:500 15px/1 "Space Grotesk",sans-serif;margin-bottom:6px}
-  .qcard .qr{width:74px;height:74px;margin:0 auto 5px}
-  .qcard .qr canvas,.qcard .qr img{width:74px!important;height:74px!important}
+  .qrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:9px 0 0}
+  .qcard{border:2px solid var(--line);padding:7px 8px 6px;text-align:center}
+  .qcard .h{font:500 14px/1 "Space Grotesk",sans-serif;margin-bottom:5px}
+  .qcard .qr{width:66px;height:66px;margin:0 auto 4px}
+  .qcard .qr canvas,.qcard .qr img{width:66px!important;height:66px!important}
   .qcard .name{font:700 10.5px/1 "DM Sans",sans-serif;margin-bottom:3px}
   .qcard .u{font:500 9px/1 "DM Mono",monospace;color:var(--muted)}
 
@@ -94,35 +94,35 @@
   .grid3 p{font-size:9.2px;line-height:1.45;color:#3a382f;margin:0}
 
   /* two col */
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}
   ul.tight{margin:0;padding-left:0;list-style:none}
-  ul.tight li{font-size:9.3px;line-height:1.48;margin-bottom:5px;padding-left:12px;position:relative}
+  ul.tight li{font-size:9.2px;line-height:1.42;margin-bottom:4px;padding-left:12px;position:relative}
   ul.tight li:last-child{margin-bottom:0}
   ul.tight li::before{content:"";position:absolute;left:0;top:6px;width:4.5px;height:4.5px;border-radius:50%;background:var(--ink)}
   ul.tight li b{font-weight:700}
 
   /* quickstart — black title bar, white body, orange left edge (v1) */
-  .qs{border:2px solid var(--line);border-left:8px solid var(--accent);margin-top:11px}
-  .qs .bar{background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:7px 12px}
+  .qs{border:2px solid var(--line);border-left:8px solid var(--accent);margin-top:10px}
+  .qs .bar{background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:6px 12px}
   .qs .bar h3{font:700 16px/1 "Space Grotesk",sans-serif;letter-spacing:.4px;margin:0}
   .qs .bar .when{font:700 9px/1 "DM Mono",monospace;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
-  .qs .cols{display:grid;grid-template-columns:1.1fr 1.16fr 1fr;gap:14px;padding:9px 12px 10px}
+  .qs .cols{display:grid;grid-template-columns:1fr 1.12fr 1.06fr;gap:14px;padding:8px 12px 8px}
   .qs .num{display:inline-block;background:var(--accent);color:#fff;font:700 11px/1 "DM Mono",monospace;padding:3px 6px;flex:none}
-  .qs h5{font:700 12px/1.15 "DM Sans",sans-serif;margin:0 0 7px;display:flex;align-items:center;gap:7px}
+  .qs h5{font:700 12px/1.15 "DM Sans",sans-serif;margin:0 0 5px;display:flex;align-items:center;gap:7px}
   .qs h5 .cmd-name{color:var(--accent-deep)}
-  .qs .os{font:600 8px/1 "DM Mono",monospace;letter-spacing:.16em;color:#8a867e;margin:7px 0 3px;text-transform:uppercase}
-  .qs .cmd{background:var(--paper);border-left:3px solid var(--accent);padding:3px 6px;margin:3px 0;font:500 8.4px/1.5 "DM Mono",monospace;color:var(--ink);white-space:pre-wrap;word-break:break-word}
-  .qs .pre-note{font-size:8.8px;color:var(--muted);margin-top:5px;line-height:1.45}
+  .qs .os{font:600 8px/1 "DM Mono",monospace;letter-spacing:.16em;color:#8a867e;margin:5px 0 3px;text-transform:uppercase}
+  .qs .cmd{background:var(--paper);border-left:3px solid var(--accent);padding:2px 6px;margin:3px 0;font:500 8.3px/1.45 "DM Mono",monospace;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+  .qs .pre-note{font-size:8.6px;color:var(--muted);margin-top:4px;line-height:1.42}
   .qs .jhead{font:700 11px/1 "DM Sans",sans-serif;margin:9px 0 5px}
   .qs .journey{font:500 9px/1.65 "DM Mono",monospace}
   .qs .journey b{color:var(--accent-deep);font-weight:700}
 
   /* three-door strip — gray band inside the quickstart frame: read docs | fund node | ship a website */
-  .qs .strip{background:var(--paper);border-top:1px solid #e2ddd4;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:8px 12px}
+  .qs .strip{background:var(--paper);border-top:1px solid #e2ddd4;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:7px 12px}
   .strip .door{display:flex;align-items:center;gap:9px}
   .strip .door+.door{border-left:1px solid #e2ddd4;padding-left:12px}
-  .strip .qr{width:54px;height:54px;flex:none}
-  .strip .qr canvas,.strip .qr img{width:54px!important;height:54px!important}
+  .strip .qr{width:50px;height:50px;flex:none}
+  .strip .qr canvas,.strip .qr img{width:50px!important;height:50px!important}
   .strip h4{font:700 10px/1.2 "Space Grotesk",sans-serif;margin:0 0 3px}
   .strip h4 .mono,.strip h4 a{background:none;color:var(--accent-deep)}
   .strip p{font-size:8.2px;margin:0;color:#3a382f;line-height:1.45}
@@ -235,35 +235,37 @@
         <li><b>Ultra-light nodes can't upload.</b> Writing needs at least a light node with funds.</li>
         <li><b>Feed writes are append-only.</b> Each index slot writes once; always resolve the current index before writing.</li>
         <li><b>Feed slots hold ≤ 4 KB.</b> For larger payloads, upload as a file first, then write the reference into the feed.</li>
+        <li><b>The public gateway blocks unreviewed sites.</b> A fresh upload can show "Forbidden" — view it at <span class="mono">bzz.limo/bzz/&lt;hash&gt;/</span> or via your own node.</li>
         <li><b>Capacity &amp; lifetime are non-deterministic.</b> Both depend on chunking and dynamic pricing — monitor and top up.</li>
       </ul>
     </div>
   </div>
 
   <div class="qs">
-    <div class="bar"><h3>QUICKSTART FOR SWARM DEVELOPMENT</h3><div class="when">The recommended way to start · ~5 min</div></div>
+    <div class="bar"><h3>START BUILDING ON SWARM</h3><div class="when">Three ways in · pick your path</div></div>
     <div class="cols">
       <div>
-        <h5><span class="num">1</span><span>Install Claude Code</span></h5>
-        <div class="os">macOS / Linux / WSL</div>
+        <div class="os">No install · in the browser</div>
+        <h5>Upload via Beeport</h5>
+        <div class="pre-note" style="margin-top:0">Buy a stamp with any token and upload files or a whole site through Beeport's hosted gateway nodes — nothing to run, no node of your own.</div>
+        <div class="cmd"><a href="https://beeport.ethswarm.org">beeport.ethswarm.org</a></div>
+        <div class="pre-note">Good for a first upload &amp; quick demos; run a node when you want your own infrastructure.</div>
+      </div>
+      <div>
+        <div class="os">Your own node · Linux / macOS / WSL</div>
+        <h5>Run a Bee light node</h5>
+        <div class="cmd">$ curl -s https://raw.githubusercontent.com/ethersphere/bee/master/install.sh | TAG=v2.8.0 bash</div>
+        <div class="cmd">$ npm i -g @ethersphere/swarm-cli  # Node ≥ 18</div>
+        <div class="pre-note"><b>Fund the node</b> ↓ then buy a stamp — full steps: <a class="mono" href="https://docs.ethswarm.org/docs/bee/installation/quick-start">/bee/installation/quick-start</a></div>
+        <div class="pre-note">No funds? <b>bee dev</b> runs a local node with free stamps: <a class="mono" href="https://docs.ethswarm.org/docs/develop/tools-and-features/bee-dev-mode">/.../bee-dev-mode</a></div>
+      </div>
+      <div>
+        <div class="os">Optional · AI-assisted</div>
+        <h5>Guided setup with Claude Code</h5>
         <div class="cmd">$ curl -fsSL https://claude.ai/install.sh | bash</div>
-        <div class="os">Windows · PowerShell</div>
-        <div class="cmd">$ irm https://claude.ai/install.ps1 | iex</div>
-        <div class="pre-note">Docs: <a href="https://code.claude.com/docs"><b>code.claude.com/docs</b></a></div>
-      </div>
-      <div>
-        <h5><span class="num">2</span><span>Add the Swarm skills</span></h5>
-        <div class="os">Log in to Claude, then clone &amp; open</div>
-        <div class="cmd">$ claude   # sign in via browser (OAuth)</div>
-        <div class="cmd">$ git clone https://github.com/ethersphere/swarm-quickstart-skills.git</div>
-        <div class="cmd">$ cd swarm-quickstart-skills/.claude
-$ claude</div>
-      </div>
-      <div>
-        <h5><span class="num">3</span><span>Run <span class="cmd-name">/swarm</span> to set up</span></h5>
-        <div class="pre-note" style="margin-top:0">Runs a guided setup — checks for an existing node and installs/configures Bee if needed. Then <b>fund the node</b> — see below ↓</div>
-        <div class="jhead">↳ Suggested Developer Journey</div>
-        <div class="journey"><b>/swarm</b> → /swarm-setup-bee-interactive → /swarm-stamps → /swarm-upload-download | /swarm-host-website | /swarm-blog</div>
+        <div class="cmd">$ git clone https://github.com/ethersphere/swarm-quickstart-skills.git
+$ cd swarm-quickstart-skills &amp;&amp; claude</div>
+        <div class="pre-note">Type <span class="cmd-name"><b>/swarm</b></span> — guided node setup, stamps, upload, hosting. Stuck? <b>/swarm-troubleshoot</b>. Windows: <a href="https://code.claude.com/docs">code.claude.com/docs</a></div>
       </div>
     </div>
     <div class="strip">
@@ -415,6 +417,7 @@ $ claude</div>
       <ul>
         <li><a href="https://beeport.ethswarm.org"><b>Beeport</b> <span class="mono">beeport.ethswarm.org</span></a></li>
         <li><a href="https://gateway.ethswarm.org"><b>Public gateway</b> <span class="mono">gateway.ethswarm.org</span></a></li>
+        <li><a href="https://bzz.limo"><b>View by hash</b> <span class="mono">bzz.limo/bzz/&lt;hash&gt;/</span></a></li>
         <li><a href="https://docs.ethswarm.org/docs/develop/tools-and-features/starting-a-test-network"><b>Local test network</b> <span class="mono">/.../starting-a-test-network</span></a></li>
         <li><a href="https://swarmscan.io"><b>SwarmScan</b> <span class="mono">swarmscan.io</span></a></li>
       </ul>
