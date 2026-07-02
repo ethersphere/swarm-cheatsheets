@@ -39,7 +39,9 @@
      footer gradient #1F2831→black, muted #8B909A, links #F6F7F9 w/ opacity hover */
   @media screen{
     html{background:#000}
-    body{padding:22px 0 0;background:linear-gradient(180deg,#1F2831 0%,#0D1216 40%,#000 100%) no-repeat}
+    /* 120% screen zoom: A4 at native CSS size is ~794px wide — small on modern
+       displays. Scales sheet + chrome together; print media is unaffected. */
+    body{padding:22px 0 0;background:linear-gradient(180deg,#1F2831 0%,#0D1216 40%,#000 100%) no-repeat;zoom:1.2}
     .sheet{margin:0 auto 22px;box-shadow:0 8px 50px rgba(0,0,0,.55)}
     .toolbar{max-width:210mm;margin:0 auto 18px;padding:0 4px;display:flex;align-items:center;gap:10px}
     .toolbar .sitelogo{height:26px;display:block}
