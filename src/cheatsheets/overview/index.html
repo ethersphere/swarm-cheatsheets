@@ -107,13 +107,15 @@
   .qs .journey{font:500 9px/1.65 "DM Mono",monospace}
   .qs .journey b{color:var(--accent-deep);font-weight:700}
 
-  /* written-docs strip — gray band inside the quickstart frame (v1) */
-  .qs .strip{background:var(--paper);border-top:1px solid #e2ddd4;display:flex;align-items:center;gap:12px;padding:8px 12px}
+  /* two-door strip — gray band inside the quickstart frame: written docs | ship a website */
+  .qs .strip{background:var(--paper);border-top:1px solid #e2ddd4;display:grid;grid-template-columns:1fr 1.08fr;gap:14px;padding:8px 12px}
+  .strip .door{display:flex;align-items:center;gap:10px}
+  .strip .door+.door{border-left:1px solid #e2ddd4;padding-left:14px}
   .strip .qr{width:54px;height:54px;flex:none}
   .strip .qr canvas,.strip .qr img{width:54px!important;height:54px!important}
-  .strip h4{font:700 11.5px/1.15 "Space Grotesk",sans-serif;margin:0 0 3px}
+  .strip h4{font:700 10.5px/1.15 "Space Grotesk",sans-serif;margin:0 0 3px}
   .strip h4 .mono{background:none;color:var(--accent-deep)}
-  .strip p{font-size:9px;margin:0;color:#3a382f;line-height:1.45}
+  .strip p{font-size:8.4px;margin:0;color:#3a382f;line-height:1.45}
   .strip .mono{color:var(--accent-deep);font-weight:500}
 
   .moreback{border:2px dashed var(--ink);text-align:center;font:700 10px/1 "DM Mono",monospace;letter-spacing:.14em;padding:7px;margin-top:9px;text-transform:none}
@@ -138,7 +140,7 @@
   .lane{display:flex;align-items:center;gap:10px;font:700 9px/1 "DM Mono",monospace;letter-spacing:.34em;color:var(--muted);text-transform:uppercase;margin:16px 0 9px}
   .lane::after{content:"";flex:1;height:1px;background:var(--hair)}
   .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-  .lcard{border:2px solid var(--line);padding:10px 10px 30px;position:relative;min-height:242px}
+  .lcard{border:2px solid var(--line);padding:10px 10px 30px;position:relative;min-height:210px}
   .lcard .qr{width:48px;height:48px;position:absolute;top:9px;right:9px}
   .lcard .qr canvas,.lcard .qr img{width:48px!important;height:48px!important}
   .lcard h4{font:700 12.5px/1.1 "Space Grotesk",sans-serif;margin:0 6px 2px 0;padding-right:54px}
@@ -212,6 +214,7 @@
         <li><b>Dynamic pricing.</b> Stamp cost tracks a price that can rise — top up so batches outlast your needs.</li>
         <li><b>Ultra-light nodes can't upload.</b> Writing needs at least a light node with funds.</li>
         <li><b>Feed writes are append-only.</b> Each index slot writes once; always resolve the current index before writing.</li>
+        <li><b>Feed slots hold ≤ 4 KB.</b> For larger payloads, upload as a file first, then write the reference into the feed.</li>
         <li><b>Capacity &amp; lifetime are non-deterministic.</b> Both depend on chunking and dynamic pricing — monitor and top up.</li>
       </ul>
     </div>
@@ -245,10 +248,19 @@ $ claude</div>
       </div>
     </div>
     <div class="strip">
-      <div class="qr" data-url="https://justdeploy.bzz.link"></div>
-      <div>
-        <h4>Prefer written docs? → <span class="mono">justdeploy.bzz.link</span></h4>
-        <p><b>Step-by-step guides</b> for getting started on Swarm — Bee node install, funding, site hosting — with beginner, intermediate and advanced tracks. Mirror: <span class="mono">justdeploy.eth.limo</span></p>
+      <div class="door">
+        <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/introduction"></div>
+        <div>
+          <h4>Prefer written docs? → <span class="mono">docs.ethswarm.org</span></h4>
+          <p>The official developer docs — concepts, Bee install, stamps, guides. Full link map on the <b>back of this card</b>.</p>
+        </div>
+      </div>
+      <div class="door">
+        <div class="qr" data-url="https://justdeploy.bzz.link"></div>
+        <div>
+          <h4>Just shipping a website? → <span class="mono">justdeploy.bzz.link</span></h4>
+          <p>Guided deploy walkthrough — <b>Browser</b> (Beeport, no install) · <b>Desktop app</b> · <b>CLI</b> (full Bee install, stamps &amp; top-up). Mirror: <span class="mono">justdeploy.eth.limo</span></p>
+        </div>
       </div>
     </div>
   </div>
@@ -290,6 +302,7 @@ $ claude</div>
         <li><b>What is Swarm</b> <span class="mono">/concepts/what-is-swarm</span></li>
         <li><b>Developer intro</b> <span class="mono">/develop/introduction</span></li>
         <li><b>Bee node quick-start</b> <span class="mono">/bee/installation/quick-start</span></li>
+        <li><b>Full install guide</b> <span class="mono">/bee/installation/getting-started</span></li>
         <li><b>Swarm papers</b> <span class="mono">papers.ethswarm.org</span></li>
       </ul>
       <div class="scan">Scan QR → get-started hub</div>
@@ -301,7 +314,8 @@ $ claude</div>
         <li><b>DISC</b> <span class="mono">/concepts/DISC</span></li>
         <li><b>Incentives &amp; BZZ</b> <span class="mono">/concepts/incentives/overview</span></li>
         <li><b>Postage stamps</b> <span class="mono">/.../buy-a-stamp-batch</span></li>
-        <li><b>Feeds · Manifests · Chunk types</b></li>
+        <li><b>Feeds</b> <span class="mono">/.../tools-and-features/feeds</span></li>
+        <li><b>Manifests</b> <span class="mono">/.../manifests</span> · <b>Chunk types</b> <span class="mono">/.../chunk-types</span></li>
       </ul>
       <div class="scan">Scan QR → deep-dive on concepts</div>
     </div>
@@ -311,7 +325,9 @@ $ claude</div>
       <ul>
         <li><b>Upload &amp; download</b> <span class="mono">/develop/upload-and-download</span></li>
         <li><b>Host a website</b> <span class="mono">/develop/host-your-website</span></li>
-        <li><b>Routing · Dynamic content (feeds)</b></li>
+        <li><b>Files &amp; directories</b> <span class="mono">/develop/files</span></li>
+        <li><b>Routing for SPAs</b> <span class="mono">/develop/routing</span></li>
+        <li><b>Dynamic content (feeds)</b> <span class="mono">/develop/dynamic-content</span></li>
         <li><b>Multi-author blog · Access control (ACT)</b></li>
       </ul>
       <div class="scan">Scan QR → all developer guides</div>
@@ -346,7 +362,8 @@ $ claude</div>
       <ul>
         <li><b>Chat React example</b> <span class="mono">Solar-Punk-Ltd</span></li>
         <li><b>Chat JS</b> <span class="mono">swarm-chat-js</span></li>
-        <li><b>PSS · GSOC</b> <span class="mono">/develop/.../pss · /gsoc</span></li>
+        <li><b>PSS messaging</b> <span class="mono">/.../tools-and-features/pss</span></li>
+        <li><b>GSOC messaging</b> <span class="mono">/.../tools-and-features/gsoc</span></li>
       </ul>
       <div class="scan">Scan QR → chat repo</div>
     </div>
@@ -361,6 +378,7 @@ $ claude</div>
         <li><b>bee-js</b> <span class="mono">bee-js.ethswarm.org</span></li>
         <li><b>Bee HTTP API</b> <span class="mono">docs.ethswarm.org/api</span></li>
         <li><b>swarm-cli · Swarm MCP</b> <span class="mono">ethersphere/swarm-mcp</span></li>
+        <li><b>Bee (Go source)</b> <span class="mono">ethersphere/bee</span></li>
       </ul>
       <div class="scan">Scan QR → bee-js docs</div>
     </div>
@@ -370,7 +388,8 @@ $ claude</div>
       <ul>
         <li><b>Beeport</b> <span class="mono">beeport.ethswarm.org</span></li>
         <li><b>Public gateway</b> <span class="mono">gateway.ethswarm.org</span></li>
-        <li><b>Local test network · SwarmScan</b></li>
+        <li><b>Local test network</b> <span class="mono">/.../starting-a-test-network</span></li>
+        <li><b>SwarmScan</b> <span class="mono">swarmscan.io</span></li>
       </ul>
       <div class="scan">Scan QR → deploy &amp; gateway</div>
     </div>
@@ -379,8 +398,10 @@ $ claude</div>
       <div class="qr" data-url="https://discord.ethswarm.org"></div>
       <ul>
         <li><b>Discord</b> <span class="mono">discord.ethswarm.org</span></li>
+        <li><b>Docs home</b> <span class="mono">docs.ethswarm.org</span></li>
         <li><b>Bee FAQ</b> <span class="mono">/docs/bee/bee-faq</span></li>
-        <li><b>GitHub · Blog</b> <span class="mono">ethersphere · blog.ethswarm.org</span></li>
+        <li><b>GitHub org</b> <span class="mono">github.com/ethersphere</span></li>
+        <li><b>Foundation blog</b> <span class="mono">blog.ethswarm.org</span></li>
       </ul>
       <div class="scan">Scan QR → join Discord</div>
     </div>
