@@ -42,8 +42,9 @@ no build runtime — mirror justdeploy's no-build, static, Swarm-hosted approach
 ```
 swarm-cheatsheets/
 ├── src/cheatsheets/<topic>/   # one folder per cheatsheet (index.html + content)
-├── assets/                    # brand assets, QR codes, fonts
+├── assets/                    # vendored fonts + qrcode lib (offline-deterministic)
 ├── dist/                      # generated PDFs (+ the v1 reference)
+├── scripts/                   # pdf.sh (HTML → A4 PDF), check-links.sh
 ├── docs/PLAN.md               # the build plan and content roadmap
 └── CLAUDE.md
 ```
@@ -68,10 +69,14 @@ swarm-cheatsheets/
 No build step to view: open `src/cheatsheets/<topic>/index.html` in a browser, or
 `python3 -m http.server 8080`.
 
-**Generate the PDFs** (HTML → A4 PDF via headless Chrome): `./scripts-pdf.sh`
-regenerates every card into `dist/`. To export one card by hand: open it in Chrome →
-`⌘P` → Save as PDF → A4 → margins **None** → Background graphics **ON**.
-QR codes render client-side (qrcodejs via CDN); the script waits for them.
+**Generate the PDFs** (HTML → A4 PDF via headless Chrome): `./scripts/pdf.sh`
+regenerates every card into `dist/` (`./scripts/pdf.sh <topic>` for one card). To export
+by hand: open it in Chrome → `⌘P` → Save as PDF → A4 → margins **None** → Background
+graphics **ON**. Fonts and the QR library are vendored in `assets/` — no network needed;
+QR codes render client-side at 4× for print sharpness.
+
+**Check that every link on the cards is still alive:** `./scripts/check-links.sh`
+(also runs weekly in CI — broken links on a printed card are the worst failure mode).
 
 ## Related
 

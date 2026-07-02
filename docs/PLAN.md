@@ -87,7 +87,7 @@ Each cheatsheet maps to a skill and routes to docs. A bespoke guide is the excep
   `ethersphere`. Confirm the architecture decision above.
 - **Phase 1 — Pipeline:** ✅ DONE. v1 Overview card rebuilt as one HTML file
   (`src/cheatsheets/overview/index.html`) with print CSS + live QR codes; generates a 2-page
-  A4 PDF via `./scripts-pdf.sh` (headless Chrome). Version-corrected (swarm-prefixed skill
+  A4 PDF via `./scripts/pdf.sh` (headless Chrome). Version-corrected (swarm-prefixed skill
   commands, "Verified: Bee 2.8.0 · bee-js 12.x · swarm-cli 3.x"). Output:
   `dist/swarm-overview-cheatsheet.pdf`. **Remaining tuning:** increase density to fill more of
   the page (currently ~60% height) to match v1; minor QR/typography polish.

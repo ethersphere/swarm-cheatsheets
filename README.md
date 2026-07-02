@@ -20,9 +20,11 @@ The plan to turn it into a maintainable set is in [`docs/PLAN.md`](docs/PLAN.md)
 
 ```
 src/cheatsheets/<topic>/   one folder per cheatsheet
-assets/                    brand assets, QR codes, fonts
+assets/                    vendored fonts + QR library
 dist/                      generated PDFs (+ v1 reference)
+scripts/                   pdf.sh, check-links.sh
 docs/PLAN.md               build plan & content roadmap
 ```
 
 No build step to preview: open an `index.html` in a browser, or `python3 -m http.server 8080`.
+Regenerate the PDFs with `./scripts/pdf.sh`; verify all card links with `./scripts/check-links.sh`.
