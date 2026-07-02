@@ -35,20 +35,25 @@
   }
   .sheet:last-child{page-break-after:auto;break-after:auto}
 
-  /* screen-only chrome — dark brand shell in ethswarm.org's palette (#0D1216) */
+  /* screen-only chrome — tokens from ethersphere/ethswarm-nextjs:
+     footer gradient #1F2831→black, muted #8B909A, links #F6F7F9 w/ opacity hover */
   @media screen{
-    body{padding:22px 0 0;background:#0D1216}
-    .sheet{margin:0 auto 22px;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+    html{background:#000}
+    body{padding:22px 0 0;background:linear-gradient(180deg,#1F2831 0%,#0D1216 40%,#000 100%) no-repeat}
+    .sheet{margin:0 auto 22px;box-shadow:0 8px 50px rgba(0,0,0,.55)}
     .toolbar{max-width:210mm;margin:0 auto 18px;padding:0 4px;display:flex;align-items:center;gap:10px}
     .toolbar .sitelogo{height:26px;display:block}
-    .toolbar .title{color:#e9e7e2;font:700 14px/1.2 "Space Grotesk",sans-serif;margin:0 auto 0 14px;padding-left:14px;border-left:1px solid #2D3843}
-    .toolbar .title span{color:#7d8790;font:500 11px/1.2 "DM Sans",sans-serif;display:block}
-    .sitefoot{max-width:210mm;margin:0 auto;padding:16px 4px 26px;border-top:1px solid #1F2831;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-    .sitefoot .sitelogo{height:18px;display:block;opacity:.9}
-    .sitefoot .tag{color:#7d8790;font:500 11px/1.4 "DM Sans",sans-serif;margin-right:auto}
-    .sitefoot nav{display:flex;gap:16px}
-    .sitefoot nav a{color:#aab3bb;font:500 11px/1 "DM Mono",monospace;letter-spacing:.04em}
-    .sitefoot nav a:hover{color:var(--accent)}
+    .toolbar .title{color:#F6F7F9;font:700 14px/1.2 "Space Grotesk",sans-serif;margin:0 auto 0 14px;padding-left:14px;border-left:1px solid #2D3843}
+    .toolbar .title span{color:#8B909A;font:500 11px/1.2 "DM Sans",sans-serif;display:block}
+    .sitefoot{max-width:210mm;margin:0 auto;padding:18px 4px 8px;border-top:1px solid rgba(246,247,249,.08);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .sitefoot .sitelogo{height:20px;display:block}
+    .sitefoot .tag{color:#8B909A;font:500 12px/1.4 "DM Sans",sans-serif;margin-right:auto}
+    .sitefoot nav{display:flex;gap:18px}
+    .sitefoot nav a{color:#F6F7F9;font:600 12px/1 "DM Sans",sans-serif;transition:opacity .15s}
+    .sitefoot nav a:hover{color:#F6F7F9;opacity:.7;text-decoration:none}
+    .microfoot{max-width:210mm;margin:0 auto;padding:10px 4px 26px;font:400 10px/1.4 "DM Sans",sans-serif;color:rgba(246,247,249,.5)}
+    .microfoot a{color:inherit}
+    .microfoot a:hover{color:inherit;text-decoration:underline}
     .btn{display:inline-flex;align-items:center;gap:7px;background:var(--accent);color:#fff;border:0;cursor:pointer;
          font:700 12px/1 "Space Grotesk",sans-serif;letter-spacing:.03em;padding:9px 14px;text-decoration:none}
     .btn:hover{background:var(--accent-deep);color:#fff;text-decoration:none}
@@ -56,7 +61,7 @@
     .btn.ghost:hover{border-color:#e9e7e2;background:transparent;color:#fff}
     .btn svg{width:13px;height:13px;fill:currentColor}
   }
-  @media print{ .toolbar,.sitefoot{display:none} body{background:#fff} }
+  @media print{ .toolbar,.sitefoot,.microfoot{display:none} body{background:#fff} }
   @page{ size:A4; margin:0 }
 
   /* ---- header ---- */
@@ -452,13 +457,14 @@ $ cd swarm-quickstart-skills &amp;&amp; claude</div>
   <img class="sitelogo" src="../../../assets/swarm-logo-white.svg" alt="Swarm">
   <span class="tag">Swarm Cheatsheets — print-first developer reference</span>
   <nav>
-    <a href="https://www.ethswarm.org">ethswarm.org</a>
-    <a href="https://docs.ethswarm.org">docs</a>
-    <a href="https://github.com/ethersphere">github</a>
-    <a href="https://discord.ethswarm.org">discord</a>
-    <a href="https://blog.ethswarm.org">blog</a>
+    <a href="https://www.ethswarm.org">Swarm</a>
+    <a href="https://docs.ethswarm.org">Docs</a>
+    <a href="https://github.com/ethersphere">GitHub</a>
+    <a href="https://discord.ethswarm.org">Discord</a>
+    <a href="https://blog.ethswarm.org">Blog</a>
   </nav>
 </div>
+<div class="microfoot">Verified against Bee 2.8.0 · bee-js 12.x · swarm-cli 3.x · <a href="https://github.com/ethersphere/swarm-quickstart-skills">swarm-quickstart-skills</a></div>
 
 <script src="../../../assets/vendor/qrcode.min.js"></script>
 <script>
