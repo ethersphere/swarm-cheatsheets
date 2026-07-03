@@ -76,7 +76,12 @@ graphics **ON**. Fonts and the QR library are vendored in `assets/` — no netwo
 QR codes render client-side at 4× for print sharpness.
 
 **Check that every link on the cards is still alive:** `./scripts/check-links.sh`
-(also runs weekly in CI — broken links on a printed card are the worst failure mode).
+(also runs weekly in CI — broken links on a printed card are the worst failure mode;
+it also verifies the pinned Bee `TAG=vX.Y.Z` release exists before a print run).
+
+**Assemble the Swarm-uploadable site:** `./scripts/site.sh` builds `dist/site/`
+(gitignored) — index.html with localized asset paths + fonts + QR lib + logos + the
+PDF. Upload that folder only.
 
 ## Related
 

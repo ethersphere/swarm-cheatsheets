@@ -30,3 +30,11 @@ docs/PLAN.md               build plan & content roadmap
 
 No build step to preview: open an `index.html` in a browser, or `python3 -m http.server 8080`.
 Regenerate the PDFs with `./scripts/pdf.sh`; verify all card links with `./scripts/check-links.sh`.
+
+**Deploy to Swarm:** `./scripts/site.sh` assembles a self-contained `dist/site/` folder
+(page + assets + PDF, nothing else) — upload that folder, e.g.
+`swarm-cli upload dist/site --stamp <BATCH_ID>`.
+
+---
+
+Maintained by the Swarm **DevRel** team.
