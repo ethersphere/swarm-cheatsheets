@@ -9,7 +9,7 @@ a **printable PDF** for events, and a **web page** (hosted on Swarm) you can dow
 
 Part of the Swarm developer-onboarding stack:
 
-- **Cheatsheets** (this repo) — print-first quick reference
+- **[Cheatsheets](https://swarm-devrel.bzz.link/)** (this repo) — print-first quick reference
 - **[justdeploy](https://github.com/GasperX93/justdeploy)** — deeper web guides
 - **[swarm-quickstart-skills](https://github.com/ethersphere/swarm-quickstart-skills)** — interactive Claude Code skills
 
