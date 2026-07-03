@@ -4,6 +4,8 @@
 
 Printable, single-source reference cards for building on [Ethereum Swarm](https://ethswarm.org).
 
+Link to Cheatsheets: https://swarm-devrel.bzz.link/
+
 Each cheatsheet is a dense A4 quick-reference that exists in two forms from one source:
 a **printable PDF** for events, and a **web page** (hosted on Swarm) you can download the PDF from.
 
