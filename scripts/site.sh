@@ -16,7 +16,7 @@ rm -rf "$OUT"
 mkdir -p "$OUT/assets"
 
 cp -R "$ROOT/assets/fonts" "$ROOT/assets/vendor" "$OUT/assets/"
-cp "$ROOT/assets/swarm-logo.svg" "$ROOT/assets/swarm-logo-white.svg" "$OUT/assets/"
+cp "$ROOT/assets/swarm-logo.svg" "$ROOT/assets/swarm-logo-white.svg" "$ROOT/assets/favicon.png" "$OUT/assets/"
 cp "$ROOT/dist/swarm-overview-cheatsheet.pdf" "$OUT/"
 
 # Rewrite repo-relative paths to site-local ones.
