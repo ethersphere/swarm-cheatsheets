@@ -1,5 +1,7 @@
 # Swarm Cheatsheets
 
+> **Maintained by:** devrel team
+
 Printable, single-source reference cards for building on [Ethereum Swarm](https://ethswarm.org).
 
 Each cheatsheet is a dense A4 quick-reference that exists in two forms from one source:
