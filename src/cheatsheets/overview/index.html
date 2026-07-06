@@ -132,13 +132,13 @@
   .qs .journey{font:500 9px/1.65 "DM Mono",monospace}
   .qs .journey b{color:var(--accent-deep);font-weight:700}
 
-  /* three-door strip — gray band inside the quickstart frame: read docs | fund node | ship a website */
-  .qs .strip{background:var(--paper);border-top:1px solid #e2ddd4;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:7px 12px}
-  .strip .door{display:flex;align-items:center;gap:9px}
-  .strip .door+.door{border-left:1px solid #e2ddd4;padding-left:12px}
-  .strip .qr{width:50px;height:50px;flex:none}
-  .strip .qr canvas,.strip .qr img{width:50px!important;height:50px!important}
-  .strip h4{font:700 10px/1.2 "Space Grotesk",sans-serif;margin:0 0 3px}
+  /* two-door strip — gray band inside the quickstart frame: fund node | ship a website */
+  .qs .strip{background:var(--paper);border-top:1px solid #e2ddd4;display:grid;grid-template-columns:1fr 1.08fr;gap:14px;padding:7px 12px}
+  .strip .door{display:flex;align-items:center;gap:10px}
+  .strip .door+.door{border-left:1px solid #e2ddd4;padding-left:14px}
+  .strip .qr{width:52px;height:52px;flex:none}
+  .strip .qr canvas,.strip .qr img{width:52px!important;height:52px!important}
+  .strip h4{font:700 10.5px/1.2 "Space Grotesk",sans-serif;margin:0 0 3px}
   .strip h4 .mono,.strip h4 a{background:none;color:var(--accent-deep)}
   .strip p{font-size:8.2px;margin:0;color:#3a382f;line-height:1.45}
   .strip .mono{color:var(--accent-deep);font-weight:500}
@@ -213,9 +213,9 @@
   </div>
 
   <div class="qrow">
-    <div class="qcard"><div class="h">Homepage</div><div class="qr" data-url="https://www.ethswarm.org"></div><a href="https://www.ethswarm.org"><div class="name">Swarm</div><div class="u">ethswarm.org</div></a></div>
+    <div class="qcard"><div class="h">Start Building</div><div class="qr" data-url="https://docs.ethswarm.org/docs/develop/introduction"></div><a href="https://docs.ethswarm.org/docs/develop/introduction"><div class="name">Developer Intro</div><div class="u">/docs/develop/introduction</div></a></div>
     <div class="qcard"><div class="h">Docs</div><div class="qr" data-url="https://docs.ethswarm.org"></div><a href="https://docs.ethswarm.org"><div class="name">Documentation</div><div class="u">docs.ethswarm.org</div></a></div>
-    <div class="qcard"><div class="h">Explorer</div><div class="qr" data-url="https://swarmscan.io"></div><a href="https://swarmscan.io"><div class="name">SwarmScan</div><div class="u">swarmscan.io</div></a></div>
+    <div class="qcard"><div class="h">Upload Now</div><div class="qr" data-url="https://beeport.ethswarm.org"></div><a href="https://beeport.ethswarm.org"><div class="name">Beeport — no install</div><div class="u">beeport.ethswarm.org</div></a></div>
   </div>
 
   <div class="lbox">
@@ -271,7 +271,7 @@
         <div class="cmd">$ curl -s https://raw.githubusercontent.com/ethersphere/bee/master/install.sh | TAG=v2.8.1 bash</div>
         <div class="cmd">$ npm i -g @ethersphere/swarm-cli  # Node ≥ 18</div>
         <div class="pre-note"><b>Fund the node</b> ↓ then buy a stamp — full steps: <a class="mono" href="https://docs.ethswarm.org/docs/bee/installation/quick-start">/bee/installation/quick-start</a></div>
-        <div class="pre-note">No funds? <b>bee dev</b> runs a local node with free stamps: <a class="mono" href="https://docs.ethswarm.org/docs/develop/tools-and-features/bee-dev-mode">/.../bee-dev-mode</a></div>
+        <div class="pre-note">No funds? <b>Bee Factory</b> runs a local dev cluster with free stamps (Docker): <a class="mono" href="https://docs.ethswarm.org/docs/develop/tools-and-features/bee-dev-mode">/.../bee-dev-mode</a></div>
       </div>
       <div>
         <div class="os">Optional · AI-assisted</div>
@@ -283,13 +283,6 @@ $ cd swarm-quickstart-skills &amp;&amp; claude</div>
       </div>
     </div>
     <div class="strip">
-      <div class="door">
-        <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/introduction"></div>
-        <div>
-          <h4>Prefer written docs? → <a class="mono" href="https://docs.ethswarm.org/docs/develop/introduction">docs.ethswarm.org</a></h4>
-          <p>The official developer docs — concepts, install, stamps, guides. Full link map on the <b>back of this card</b>.</p>
-        </div>
-      </div>
       <div class="door">
         <div class="qr" data-url="https://fund.ethswarm.org"></div>
         <div>
@@ -331,48 +324,6 @@ $ cd swarm-quickstart-skills &amp;&amp; claude</div>
       <div class="cap">Swarm Developer Resources</div>
       <h3><a href="https://docs.ethswarm.org/docs/develop/resources">docs.ethswarm.org/docs/develop/resources</a></h3>
       <p>One curated landing page linking every category below. Bookmark it — links stay updated online, so this printed sheet keeps working.</p>
-    </div>
-  </div>
-
-  <div class="lane">Learn</div>
-  <div class="cards3">
-    <div class="lcard">
-      <h4>Get Started</h4><div class="sub">your first 30 minutes</div>
-      <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/introduction"></div>
-      <ul>
-        <li><a href="https://docs.ethswarm.org/docs/concepts/what-is-swarm"><b>What is Swarm</b> <span class="mono">/concepts/what-is-swarm</span></a></li>
-        <li><a href="https://docs.ethswarm.org/docs/develop/introduction"><b>Developer intro</b> <span class="mono">/develop/introduction</span></a></li>
-        <li><a href="https://docs.ethswarm.org/docs/bee/installation/quick-start"><b>Bee node quick-start</b> <span class="mono">/bee/installation/quick-start</span></a></li>
-        <li><a href="https://docs.ethswarm.org/docs/bee/installation/getting-started"><b>Full install guide</b> <span class="mono">/bee/installation/getting-started</span></a></li>
-        <li><a href="https://fund.ethswarm.org"><b>Fund your node</b> — any EVM chain/token <span class="mono">fund.ethswarm.org</span></a></li>
-        <li><a href="https://papers.ethswarm.org"><b>Swarm papers</b> <span class="mono">papers.ethswarm.org</span></a></li>
-      </ul>
-      <div class="scan">Scan QR → get-started hub</div>
-    </div>
-    <div class="lcard">
-      <h4>Key Concepts</h4><div class="sub">how it actually works</div>
-      <div class="qr" data-url="https://docs.ethswarm.org/docs/concepts/DISC"></div>
-      <ul>
-        <li><a href="https://docs.ethswarm.org/docs/concepts/DISC"><b>DISC</b> <span class="mono">/concepts/DISC</span></a></li>
-        <li><a href="https://docs.ethswarm.org/docs/concepts/incentives/overview"><b>Incentives &amp; BZZ</b> <span class="mono">/concepts/incentives/overview</span></a></li>
-        <li><a href="https://docs.ethswarm.org/docs/develop/tools-and-features/buy-a-stamp-batch"><b>Postage stamps</b> <span class="mono">/.../buy-a-stamp-batch</span></a></li>
-        <li><a href="https://docs.ethswarm.org/docs/develop/tools-and-features/feeds"><b>Feeds</b> <span class="mono">/.../tools-and-features/feeds</span></a></li>
-        <li><a href="https://docs.ethswarm.org/docs/develop/tools-and-features/manifests"><b>Manifests</b> <span class="mono">/.../manifests</span></a> · <a href="https://docs.ethswarm.org/docs/develop/tools-and-features/chunk-types"><b>Chunk types</b> <span class="mono">/.../chunk-types</span></a></li>
-      </ul>
-      <div class="scan">Scan QR → deep-dive on concepts</div>
-    </div>
-    <div class="lcard">
-      <h4>Developer Guides</h4><div class="sub">recipes for common builds</div>
-      <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/upload-and-download"></div>
-      <ul>
-        <li><a href="https://docs.ethswarm.org/docs/develop/upload-and-download"><b>Upload &amp; download</b> <span class="mono">/develop/upload-and-download</span></a></li>
-        <li><a href="https://docs.ethswarm.org/docs/develop/host-your-website"><b>Host a website</b> <span class="mono">/develop/host-your-website</span></a></li>
-        <li><a href="https://docs.ethswarm.org/docs/develop/files"><b>Files &amp; directories</b> <span class="mono">/develop/files</span></a></li>
-        <li><a href="https://docs.ethswarm.org/docs/develop/routing"><b>Routing for SPAs</b> <span class="mono">/develop/routing</span></a></li>
-        <li><a href="https://docs.ethswarm.org/docs/develop/dynamic-content"><b>Dynamic content (feeds)</b> <span class="mono">/develop/dynamic-content</span></a></li>
-        <li><a href="https://docs.ethswarm.org/docs/develop/multi-author-blog"><b>Multi-author blog</b></a> · <a href="https://docs.ethswarm.org/docs/develop/act"><b>Access control (ACT)</b></a></li>
-      </ul>
-      <div class="scan">Scan QR → all developer guides</div>
     </div>
   </div>
 
@@ -441,6 +392,7 @@ $ cd swarm-quickstart-skills &amp;&amp; claude</div>
       <div class="qr" data-url="https://discord.ethswarm.org"></div>
       <ul>
         <li><a href="https://discord.ethswarm.org"><b>Discord</b> <span class="mono">discord.ethswarm.org</span></a></li>
+        <li><a href="https://www.ethswarm.org"><b>Swarm homepage</b> <span class="mono">ethswarm.org</span></a></li>
         <li><a href="https://docs.ethswarm.org"><b>Docs home</b> <span class="mono">docs.ethswarm.org</span></a></li>
         <li><a href="https://docs.ethswarm.org/docs/bee/bee-faq"><b>Bee FAQ</b> <span class="mono">/docs/bee/bee-faq</span></a></li>
         <li><a href="https://github.com/ethersphere"><b>GitHub org</b> <span class="mono">github.com/ethersphere</span></a></li>
@@ -449,6 +401,49 @@ $ cd swarm-quickstart-skills &amp;&amp; claude</div>
       <div class="scan">Scan QR → join Discord</div>
     </div>
   </div>
+
+  <div class="lane">Learn</div>
+  <div class="cards3">
+    <div class="lcard">
+      <h4>Get Started</h4><div class="sub">your first 30 minutes</div>
+      <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/introduction"></div>
+      <ul>
+        <li><a href="https://docs.ethswarm.org/docs/concepts/what-is-swarm"><b>What is Swarm</b> <span class="mono">/concepts/what-is-swarm</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/introduction"><b>Developer intro</b> <span class="mono">/develop/introduction</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/bee/installation/quick-start"><b>Bee node quick-start</b> <span class="mono">/bee/installation/quick-start</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/bee/installation/getting-started"><b>Full install guide</b> <span class="mono">/bee/installation/getting-started</span></a></li>
+        <li><a href="https://fund.ethswarm.org"><b>Fund your node</b> — any EVM chain/token <span class="mono">fund.ethswarm.org</span></a></li>
+        <li><a href="https://papers.ethswarm.org"><b>Swarm papers</b> <span class="mono">papers.ethswarm.org</span></a></li>
+      </ul>
+      <div class="scan">Scan QR → get-started hub</div>
+    </div>
+    <div class="lcard">
+      <h4>Key Concepts</h4><div class="sub">how it actually works</div>
+      <div class="qr" data-url="https://docs.ethswarm.org/docs/concepts/DISC"></div>
+      <ul>
+        <li><a href="https://docs.ethswarm.org/docs/concepts/DISC"><b>DISC</b> <span class="mono">/concepts/DISC</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/concepts/incentives/overview"><b>Incentives &amp; BZZ</b> <span class="mono">/concepts/incentives/overview</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/tools-and-features/buy-a-stamp-batch"><b>Postage stamps</b> <span class="mono">/.../buy-a-stamp-batch</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/tools-and-features/feeds"><b>Feeds</b> <span class="mono">/.../tools-and-features/feeds</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/tools-and-features/manifests"><b>Manifests</b> <span class="mono">/.../manifests</span></a> · <a href="https://docs.ethswarm.org/docs/develop/tools-and-features/chunk-types"><b>Chunk types</b> <span class="mono">/.../chunk-types</span></a></li>
+      </ul>
+      <div class="scan">Scan QR → deep-dive on concepts</div>
+    </div>
+    <div class="lcard">
+      <h4>Developer Guides</h4><div class="sub">recipes for common builds</div>
+      <div class="qr" data-url="https://docs.ethswarm.org/docs/develop/upload-and-download"></div>
+      <ul>
+        <li><a href="https://docs.ethswarm.org/docs/develop/upload-and-download"><b>Upload &amp; download</b> <span class="mono">/develop/upload-and-download</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/host-your-website"><b>Host a website</b> <span class="mono">/develop/host-your-website</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/files"><b>Files &amp; directories</b> <span class="mono">/develop/files</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/routing"><b>Routing for SPAs</b> <span class="mono">/develop/routing</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/dynamic-content"><b>Dynamic content (feeds)</b> <span class="mono">/develop/dynamic-content</span></a></li>
+        <li><a href="https://docs.ethswarm.org/docs/develop/multi-author-blog"><b>Multi-author blog</b></a> · <a href="https://docs.ethswarm.org/docs/develop/act"><b>Access control (ACT)</b></a></li>
+      </ul>
+      <div class="scan">Scan QR → all developer guides</div>
+    </div>
+  </div>
+
 
   <div class="foot"><span>Swarm · Build Links / Back · print A4 double-sided</span><span>Verified: Bee 2.8.1 · bee-js 12.x · swarm-cli 3.x</span></div>
 </section>
