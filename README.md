@@ -1,13 +1,17 @@
 # Swarm Cheatsheets
 
+> **Maintained by:** devrel team
+
 Printable, single-source reference cards for building on [Ethereum Swarm](https://ethswarm.org).
+
+Link to Cheatsheets: https://swarm-devrel.bzz.link/
 
 Each cheatsheet is a dense A4 quick-reference that exists in two forms from one source:
 a **printable PDF** for events, and a **web page** (hosted on Swarm) you can download the PDF from.
 
 Part of the Swarm developer-onboarding stack:
 
-- **Cheatsheets** (this repo) — print-first quick reference
+- **[Cheatsheets](https://swarm-devrel.bzz.link/)** (this repo) — print-first quick reference
 - **[justdeploy](https://github.com/GasperX93/justdeploy)** — deeper web guides
 - **[swarm-quickstart-skills](https://github.com/ethersphere/swarm-quickstart-skills)** — interactive Claude Code skills
 
