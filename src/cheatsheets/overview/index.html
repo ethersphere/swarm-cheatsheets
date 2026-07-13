@@ -161,6 +161,16 @@
   .where h3{font:700 15px/1.05 "Space Grotesk",sans-serif;margin:0 0 4px}
   .where p{font-size:9px;margin:0;color:#3a382f}
 
+  /* community & support — thin full-width strip that bookends the back page */
+  .commstrip{display:flex;gap:14px;align-items:center;border:2px solid var(--line);padding:9px 13px;margin-top:2px}
+  .commstrip .qr{width:58px;height:58px;flex:none}
+  .commstrip .qr canvas,.commstrip .qr img{width:58px!important;height:58px!important}
+  .commstrip .clinks{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px 20px;flex:1}
+  .commstrip .clinks a{font-size:9px;line-height:1.3;padding-left:10px;position:relative}
+  .commstrip .clinks a::before{content:"";position:absolute;left:0;top:5px;width:3.5px;height:3.5px;background:var(--accent)}
+  .commstrip .clinks a b{font-weight:700}
+  .commstrip .clinks .mono{font-size:8.3px;color:var(--muted)}
+
   .lane{display:flex;align-items:center;gap:10px;font:700 9px/1 "DM Mono",monospace;letter-spacing:.34em;color:var(--muted);text-transform:uppercase;margin:16px 0 9px}
   .lane::after{content:"";flex:1;height:1px;background:var(--hair)}
   .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
@@ -388,17 +398,16 @@ $ cd swarm-quickstart-skills &amp;&amp; claude</div>
       <div class="scan">Scan QR → deploy &amp; gateway</div>
     </div>
     <div class="lcard">
-      <h4>Community &amp; Support</h4><div class="sub">stuck? ask here first</div>
-      <div class="qr" data-url="https://discord.ethswarm.org"></div>
+      <h4>Claude Code + Skills</h4><div class="sub">AI-assisted dev · optional</div>
+      <div class="qr" data-url="https://github.com/ethersphere/swarm-quickstart-skills"></div>
       <ul>
-        <li><a href="https://discord.ethswarm.org"><b>Discord</b> <span class="mono">discord.ethswarm.org</span></a></li>
-        <li><a href="https://www.ethswarm.org"><b>Swarm homepage</b> <span class="mono">ethswarm.org</span></a></li>
-        <li><a href="https://docs.ethswarm.org"><b>Docs home</b> <span class="mono">docs.ethswarm.org</span></a></li>
-        <li><a href="https://docs.ethswarm.org/docs/bee/bee-faq"><b>Bee FAQ</b> <span class="mono">/docs/bee/bee-faq</span></a></li>
-        <li><a href="https://github.com/ethersphere"><b>GitHub org</b> <span class="mono">github.com/ethersphere</span></a></li>
-        <li><a href="https://blog.ethswarm.org"><b>Foundation blog</b> <span class="mono">blog.ethswarm.org</span></a></li>
+        <li><a href="https://github.com/ethersphere/swarm-quickstart-skills"><b>swarm-quickstart-skills</b> <span class="mono">ethersphere/…</span></a></li>
+        <li><b>/swarm</b> <span class="mono">detects setup, routes you</span></li>
+        <li><b>/swarm-setup-bee</b> · <b>/swarm-stamps</b></li>
+        <li><b>/swarm-upload-download</b> · <b>/swarm-host-website</b></li>
+        <li><b>/swarm-troubleshoot</b> <span class="mono">when stuck</span></li>
       </ul>
-      <div class="scan">Scan QR → join Discord</div>
+      <div class="scan">Scan QR → skills repo</div>
     </div>
   </div>
 
@@ -444,6 +453,19 @@ $ cd swarm-quickstart-skills &amp;&amp; claude</div>
     </div>
   </div>
 
+
+  <div class="lane">Community &amp; Support</div>
+  <div class="commstrip">
+    <div class="qr" data-url="https://discord.ethswarm.org"></div>
+    <div class="clinks">
+      <a href="https://discord.ethswarm.org"><b>Discord</b> <span class="mono">discord.ethswarm.org</span></a>
+      <a href="https://docs.ethswarm.org/docs/bee/bee-faq"><b>Bee FAQ</b> <span class="mono">/docs/bee/bee-faq</span></a>
+      <a href="https://www.ethswarm.org"><b>Swarm homepage</b> <span class="mono">ethswarm.org</span></a>
+      <a href="https://github.com/ethersphere"><b>GitHub org</b> <span class="mono">github.com/ethersphere</span></a>
+      <a href="https://blog.ethswarm.org"><b>Foundation blog</b> <span class="mono">blog.ethswarm.org</span></a>
+      <a href="https://docs.ethswarm.org"><b>Docs home</b> <span class="mono">docs.ethswarm.org</span></a>
+    </div>
+  </div>
 
   <div class="foot"><span>Swarm · Build Links / Back · print A4 double-sided</span><span>Verified: Bee 2.8.1 · bee-js 12.x · swarm-cli 3.x</span></div>
 </section>
