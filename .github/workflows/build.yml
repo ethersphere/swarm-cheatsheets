@@ -30,6 +30,11 @@ jobs:
             || { echo "::error::index.html is stale or uncommitted — run ./scripts/build-web.sh and commit."; exit 1; }
       - uses: browser-actions/setup-chrome@v1
         id: chrome
+      - name: Allow Chrome sandbox (Ubuntu 24.04 restricts unprivileged userns)
+        # ubuntu-latest (24.04) sets kernel.apparmor_restrict_unprivileged_userns=1,
+        # which blocks the user namespaces Chrome's sandbox needs — headless Chrome
+        # then aborts (core dump). Re-enable it so the sandbox stays ON.
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
       - name: Generate PDFs
         run: CHROME='${{ steps.chrome.outputs.chrome-path }}' ./scripts/pdf.sh
       - uses: actions/upload-artifact@v4
