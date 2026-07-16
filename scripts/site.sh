@@ -9,8 +9,12 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 OUT="$ROOT/dist/site"
 
-# Make sure the PDF the Download button serves is fresh.
-"$ROOT/scripts/pdf.sh"
+# This assembles a single-card deploy for `overview`; the multi-card web hub is
+# deferred to PLAN.md Phase 2. Regenerate its index.html from the card source,
+# then refresh the PDF the Download button serves — scoped to `overview` so
+# adding more cards doesn't build artifacts this script would discard.
+"$ROOT/scripts/build-web.sh" overview
+"$ROOT/scripts/pdf.sh" overview
 
 rm -rf "$OUT"
 mkdir -p "$OUT/assets"
