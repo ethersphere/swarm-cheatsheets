@@ -46,9 +46,11 @@ for card in "${cards[@]}"; do
       print "<!-- GENERATED from cheatsheet.html by scripts/build-web.sh — do not edit. -->"
       next
     }
-    /<\/style>/       { while ((getline < chrome)  > 0) print; css++;  print; next }
-    /^<body>/         { print; print ""; while ((getline < toolbar) > 0) print; bar++; next }
-    /qrcode\.min\.js/ { while ((getline < footer)  > 0) print; print ""; foot++; print; next }
+    # Read partials into an explicit `line` var: bare `getline < f` reads into $0
+    # and would clobber the anchor line, dropping </style> and the QR <script>.
+    /<\/style>/       { while ((getline line < chrome)  > 0) print line; print; css++;  next }
+    /^<body>/         { print; print ""; while ((getline line < toolbar) > 0) print line; bar++; next }
+    /qrcode\.min\.js/ { while ((getline line < footer)  > 0) print line; print ""; print; foot++; next }
     { print }
     END {
       if (css != 1 || bar != 1 || foot != 1) {
