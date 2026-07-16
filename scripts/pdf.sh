@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Generate A4 PDFs from each cheatsheet's index.html using headless Chrome.
+# Generate A4 PDFs from each cheatsheet's cheatsheet.html (the self-contained
+# card source, not the generated index.html) using headless Chrome.
 # Usage: ./scripts/pdf.sh              regenerate all cards into dist/
 #        ./scripts/pdf.sh overview     regenerate a single card
 # Override the browser with: CHROME=/path/to/chrome ./scripts/pdf.sh
@@ -27,9 +28,9 @@ CHROME_BIN="$(find_chrome)"
 mkdir -p "$ROOT/dist"
 
 shopt -s nullglob
-targets=("$ROOT"/src/cheatsheets/${1:-*}/index.html)
+targets=("$ROOT"/src/cheatsheets/${1:-*}/cheatsheet.html)
 if [[ ${#targets[@]} -eq 0 ]]; then
-  echo "error: no cheatsheets matched 'src/cheatsheets/${1:-*}/index.html'" >&2
+  echo "error: no cheatsheets matched 'src/cheatsheets/${1:-*}/cheatsheet.html'" >&2
   exit 1
 fi
 

@@ -1,0 +1,17 @@
+<!-- Hosted-page toolbar. Spliced into index.html by scripts/build-web.sh, right
+     after <body>. NOT part of the extractable card. Asset paths are ../../../ —
+     correct from this topic folder, which is also where index.html lives.
+     The Download-PDF filename below must match pdf.sh's convention
+     swarm-<foldername>-cheatsheet.pdf (here: overview). -->
+<div class="toolbar">
+  <a href="https://www.ethswarm.org"><img class="sitelogo" src="../../../assets/swarm-logo-white.svg" alt="Swarm"></a>
+  <div class="title">Overview Cheatsheet <span>A4 · double-sided · print-ready</span></div>
+  <a class="btn" href="../../../dist/swarm-overview-cheatsheet.pdf" download="swarm-overview-cheatsheet.pdf">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v8.6L4.7 6.3 3.3 7.7 8 12.4l4.7-4.7-1.4-1.4L8 9.6V1H8zM2 13h12v2H2z"/></svg>
+    Download PDF
+  </a>
+  <button class="btn ghost" onclick="window.print()">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h8v3H4zM2 5h12a1 1 0 0 1 1 1v5h-3v4H4v-4H1V6a1 1 0 0 1 1-1zm4 6v3h4v-3z"/></svg>
+    Print
+  </button>
+</div>

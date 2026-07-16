@@ -7,7 +7,23 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
-urls=$(grep -rhoE '(data-url="[^"]+"|https://[a-zA-Z0-9./_-]+)' "$ROOT"/src/cheatsheets/*/index.html \
+# Scan the SOURCE files (the card + its hosted-page partials), not the generated
+# index.html — this stays correct even if index.html hasn't been regenerated yet.
+# nullglob + an array so a missing partial type drops out instead of passing a
+# literal '*' path to grep; the empty-guard stops grep from reading stdin (which
+# would hang) if nothing matches. chrome.css is included so any URL added to card
+# CSS is checked too.
+shopt -s nullglob
+cards=("$ROOT"/src/cheatsheets/*/cheatsheet.html)
+src=("${cards[@]}" \
+  "$ROOT"/src/cheatsheets/*/chrome.css \
+  "$ROOT"/src/cheatsheets/*/toolbar.html \
+  "$ROOT"/src/cheatsheets/*/footer.html)
+if [[ ${#cards[@]} -eq 0 ]]; then
+  echo "error: no cheatsheet.html found under src/cheatsheets/" >&2
+  exit 1
+fi
+urls=$(grep -rhoE '(data-url="[^"]+"|https://[a-zA-Z0-9./_-]+)' "${src[@]}" \
   | sed -E 's/^data-url="//; s/"$//' \
   | sort -u)
 
@@ -32,7 +48,7 @@ done <<< "$urls"
 
 # The install command pins a Bee release tag (TAG=vX.Y.Z). Verify the tag
 # actually exists — a card printed before the release ships a broken command.
-tags=$(grep -rhoE 'TAG=v[0-9]+\.[0-9]+\.[0-9]+' "$ROOT"/src/cheatsheets/*/index.html | sed 's/TAG=//' | sort -u)
+tags=$(grep -rhoE 'TAG=v[0-9]+\.[0-9]+\.[0-9]+' "${cards[@]}" | sed 's/TAG=//' | sort -u)
 while IFS= read -r tag; do
   [[ -z "$tag" ]] && continue
   code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 \

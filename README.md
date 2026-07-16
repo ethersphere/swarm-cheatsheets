@@ -23,15 +23,21 @@ The plan to turn it into a maintainable set is in [`docs/PLAN.md`](docs/PLAN.md)
 ## Layout
 
 ```
-src/cheatsheets/<topic>/   one folder per cheatsheet
+src/cheatsheets/<topic>/   one folder per cheatsheet:
+                             cheatsheet.html  the self-contained card (SOURCE)
+                             chrome.css/toolbar.html/footer.html  hosted-page partials
+                             index.html       the web page (GENERATED — do not edit)
 assets/                    vendored fonts + QR library
 dist/                      generated PDFs (+ v1 reference)
-scripts/                   pdf.sh, check-links.sh
+scripts/                   build-web.sh, pdf.sh, check-links.sh
 docs/PLAN.md               build plan & content roadmap
 ```
 
-No build step to preview: open an `index.html` in a browser, or `python3 -m http.server 8080`.
-Regenerate the PDFs with `./scripts/pdf.sh`; verify all card links with `./scripts/check-links.sh`.
+`cheatsheet.html` is the single source — the self-contained card an external app can extract as-is.
+The hosted `index.html` is generated from it by `./scripts/build-web.sh` (which splices in the page chrome); never hand-edit `index.html`.
+
+No build step to preview: open a `cheatsheet.html` (or the generated `index.html`) in a browser, or `python3 -m http.server 8080`.
+Regenerate `index.html` with `./scripts/build-web.sh`; regenerate the PDFs with `./scripts/pdf.sh`; verify all card links with `./scripts/check-links.sh`.
 
 **Deploy to Swarm:** `./scripts/site.sh` assembles a self-contained `dist/site/` folder
 (page + assets + PDF, nothing else) — upload that folder, e.g.

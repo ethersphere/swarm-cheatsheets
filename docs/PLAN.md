@@ -85,12 +85,15 @@ Each cheatsheet maps to a skill and routes to docs. A bespoke guide is the excep
 
 - **Phase 0 — Foundation (this issue):** repo init, CLAUDE.md, this plan, GitHub repo under
   `ethersphere`. Confirm the architecture decision above.
-- **Phase 1 — Pipeline:** ✅ DONE. v1 Overview card rebuilt as one HTML file
-  (`src/cheatsheets/overview/index.html`) with print CSS + live QR codes; generates a 2-page
+- **Phase 1 — Pipeline:** ✅ DONE. v1 Overview card rebuilt as a self-contained HTML card
+  (`src/cheatsheets/overview/cheatsheet.html`) with print CSS + live QR codes; generates a 2-page
   A4 PDF via `./scripts/pdf.sh` (headless Chrome). Version-corrected (swarm-prefixed skill
   commands, "Verified: Bee 2.8.1 · bee-js 12.x · swarm-cli 3.x"). Output:
-  `dist/swarm-overview-cheatsheet.pdf`. **Remaining tuning:** increase density to fill more of
-  the page (currently ~60% height) to match v1; minor QR/typography polish.
+  `dist/swarm-overview-cheatsheet.pdf`. The card is the single source: an external app extracts
+  `cheatsheet.html` verbatim, and the hosted `index.html` is generated from it via
+  `./scripts/build-web.sh` (splices in the page chrome), so web and print never drift.
+  **Remaining tuning:** increase density to fill more of the page (currently ~60% height) to
+  match v1; minor QR/typography polish.
 - **Phase 2 — Web hub:** cheatsheets index page (Swarm-hosted, justdeploy design tokens) with
   per-card PDF download. Pick an ENS/bzz.link name.
 - **Phase 3 — First topical card:** "Publish a website," reusing justdeploy content as the
