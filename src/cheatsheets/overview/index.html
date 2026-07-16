@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- GENERATED from cheatsheet.html by scripts/build-web.sh — do not edit. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -36,35 +37,11 @@
   }
   .sheet:last-child{page-break-after:auto;break-after:auto}
 
-  /* screen-only chrome — tokens from ethersphere/ethswarm-nextjs:
-     footer gradient #1F2831→black, muted #8B909A, links #F6F7F9 w/ opacity hover */
-  @media screen{
-    html{background:#000}
-    /* 120% screen zoom: A4 at native CSS size is ~794px wide — small on modern
-       displays. Scales sheet + chrome together; print media is unaffected. */
-    body{padding:22px 0 0;background:linear-gradient(180deg,#1F2831 0%,#0D1216 40%,#000 100%) no-repeat;zoom:1.2}
-    .sheet{margin:0 auto 22px;box-shadow:0 8px 50px rgba(0,0,0,.55)}
-    .toolbar{max-width:210mm;margin:0 auto 18px;padding:0 4px;display:flex;align-items:center;gap:10px}
-    .toolbar .sitelogo{height:26px;display:block}
-    .toolbar .title{color:#F6F7F9;font:700 14px/1.2 "Space Grotesk",sans-serif;margin:0 auto 0 14px;padding-left:14px;border-left:1px solid #2D3843}
-    .toolbar .title span{color:#8B909A;font:500 11px/1.2 "DM Sans",sans-serif;display:block}
-    .sitefoot{max-width:210mm;margin:0 auto;padding:18px 4px 8px;border-top:1px solid rgba(246,247,249,.08);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-    .sitefoot .sitelogo{height:20px;display:block}
-    .sitefoot .tag{color:#8B909A;font:500 12px/1.4 "DM Sans",sans-serif;margin-right:auto}
-    .sitefoot nav{display:flex;gap:18px}
-    .sitefoot nav a{color:#F6F7F9;font:600 12px/1 "DM Sans",sans-serif;transition:opacity .15s}
-    .sitefoot nav a:hover{color:#F6F7F9;opacity:.7;text-decoration:none}
-    .microfoot{max-width:210mm;margin:0 auto;padding:10px 4px 26px;font:400 10px/1.4 "DM Sans",sans-serif;color:rgba(246,247,249,.5)}
-    .microfoot a{color:inherit}
-    .microfoot a:hover{color:inherit;text-decoration:underline}
-    .btn{display:inline-flex;align-items:center;gap:7px;background:var(--accent);color:#fff;border:0;cursor:pointer;
-         font:700 12px/1 "Space Grotesk",sans-serif;letter-spacing:.03em;padding:9px 14px;text-decoration:none}
-    .btn:hover{background:var(--accent-deep);color:#fff;text-decoration:none}
-    .btn.ghost{background:transparent;border:1.5px solid #8a867e;color:#e9e7e2}
-    .btn.ghost:hover{border-color:#e9e7e2;background:transparent;color:#fff}
-    .btn svg{width:13px;height:13px;fill:currentColor}
-  }
-  @media print{ .toolbar,.sitefoot,.microfoot{display:none} body{background:#fff} }
+  /* screen: center the card on a neutral backdrop. Branded page chrome/decoration
+     (dark gradient, zoom, toolbar, footers) lives in chrome.css — the hosted page only.
+     This file is the self-contained, extractable card; keep it chrome-free. */
+  @media screen{ .sheet{margin:0 auto 22px;box-shadow:0 8px 50px rgba(0,0,0,.55)} }
+  @media print{ body{background:#fff} }
   @page{ size:A4; margin:0 }
 
   /* ---- header ---- */
@@ -187,10 +164,46 @@
   .lcard li .mono{font-size:8.3px;color:var(--muted)}
   .lcard .scan{position:absolute;bottom:0;left:10px;right:10px;padding:7px 0 9px;border-top:1.5px dashed var(--accent);font:700 8.5px/1 "DM Mono",monospace;letter-spacing:.08em;color:var(--accent-deep);text-transform:uppercase}
   .lcard .scan::before{content:"▢";margin-right:6px}
-</style>
+/* Hosted-page chrome + branded page decoration. Spliced inline into index.html by
+   scripts/build-web.sh — NOT part of the extractable card (cheatsheet.html).
+   Tokens from ethersphere/ethswarm-nextjs: footer gradient #1F2831→black,
+   muted #8B909A, links #F6F7F9 w/ opacity hover. Uses --accent/--accent-deep
+   from cheatsheet.html's :root, which share the document once spliced. */
+  @media screen{
+    html{background:#000}
+    /* 120% screen zoom: A4 at native CSS size is ~794px wide — small on modern
+       displays. Scales sheet + chrome together; print media is unaffected. */
+    body{padding:22px 0 0;background:linear-gradient(180deg,#1F2831 0%,#0D1216 40%,#000 100%) no-repeat;zoom:1.2}
+    .toolbar{max-width:210mm;margin:0 auto 18px;padding:0 4px;display:flex;align-items:center;gap:10px}
+    .toolbar .sitelogo{height:26px;display:block}
+    .toolbar .title{color:#F6F7F9;font:700 14px/1.2 "Space Grotesk",sans-serif;margin:0 auto 0 14px;padding-left:14px;border-left:1px solid #2D3843}
+    .toolbar .title span{color:#8B909A;font:500 11px/1.2 "DM Sans",sans-serif;display:block}
+    .sitefoot{max-width:210mm;margin:0 auto;padding:18px 4px 8px;border-top:1px solid rgba(246,247,249,.08);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .sitefoot .sitelogo{height:20px;display:block}
+    .sitefoot .tag{color:#8B909A;font:500 12px/1.4 "DM Sans",sans-serif;margin-right:auto}
+    .sitefoot nav{display:flex;gap:18px}
+    .sitefoot nav a{color:#F6F7F9;font:600 12px/1 "DM Sans",sans-serif;transition:opacity .15s}
+    .sitefoot nav a:hover{color:#F6F7F9;opacity:.7;text-decoration:none}
+    .microfoot{max-width:210mm;margin:0 auto;padding:10px 4px 26px;font:400 10px/1.4 "DM Sans",sans-serif;color:rgba(246,247,249,.5)}
+    .microfoot a{color:inherit}
+    .microfoot a:hover{color:inherit;text-decoration:underline}
+    .btn{display:inline-flex;align-items:center;gap:7px;background:var(--accent);color:#fff;border:0;cursor:pointer;
+         font:700 12px/1 "Space Grotesk",sans-serif;letter-spacing:.03em;padding:9px 14px;text-decoration:none}
+    .btn:hover{background:var(--accent-deep);color:#fff;text-decoration:none}
+    .btn.ghost{background:transparent;border:1.5px solid #8a867e;color:#e9e7e2}
+    .btn.ghost:hover{border-color:#e9e7e2;background:transparent;color:#fff}
+    .btn svg{width:13px;height:13px;fill:currentColor}
+  }
+  @media print{ .toolbar,.sitefoot,.microfoot{display:none} }
+  @media print{ .toolbar,.sitefoot,.microfoot{display:none} }
 </head>
 <body>
 
+<!-- Hosted-page toolbar. Spliced into index.html by scripts/build-web.sh, right
+     after <body>. NOT part of the extractable card. Asset paths are ../../../ —
+     correct from this topic folder, which is also where index.html lives.
+     The Download-PDF filename below must match pdf.sh's convention
+     swarm-<foldername>-cheatsheet.pdf (here: overview). -->
 <div class="toolbar">
   <a href="https://www.ethswarm.org"><img class="sitelogo" src="../../../assets/swarm-logo-white.svg" alt="Swarm"></a>
   <div class="title">Overview Cheatsheet <span>A4 · double-sided · print-ready</span></div>
@@ -470,6 +483,9 @@ $ cd swarm-quickstart-skills &amp;&amp; claude</div>
   <div class="foot"><span>Swarm · Build Links / Back · print A4 double-sided</span><span>Verified: Bee 2.8.1 · bee-js 12.x · swarm-cli 3.x</span></div>
 </section>
 
+<!-- Hosted-page footers. Spliced into index.html by scripts/build-web.sh, right
+     before the QR <script>. NOT part of the extractable card. Asset paths are
+     ../../../ — correct from this topic folder, which is also where index.html lives. -->
 <div class="sitefoot">
   <img class="sitelogo" src="../../../assets/swarm-logo-white.svg" alt="Swarm">
   <span class="tag">Swarm Cheatsheets — print-first developer reference</span>
@@ -483,7 +499,7 @@ $ cd swarm-quickstart-skills &amp;&amp; claude</div>
 </div>
 <div class="microfoot">Verified against Bee 2.8.1 · bee-js 12.x · swarm-cli 3.x · <a href="https://github.com/ethersphere/swarm-quickstart-skills">swarm-quickstart-skills</a></div>
 
-<script src="../../../assets/vendor/qrcode.min.js"></script>
+<div class="microfoot">Verified against Bee 2.8.1 · bee-js 12.x · swarm-cli 3.x · <a href="https://github.com/ethersphere/swarm-quickstart-skills">swarm-quickstart-skills</a></div>
 <script>
   // Render QRs at 4x their display size (CSS scales them back down) so they
   // stay crisp when the page is printed at 300dpi instead of screen 96dpi.
