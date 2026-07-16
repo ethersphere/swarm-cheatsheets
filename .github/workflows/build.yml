@@ -17,6 +17,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Verify index.html is regenerated from cheatsheet.html
+        # index.html is a generated, committed file. If it drifts from its
+        # source, fail — the contributor must rerun ./scripts/build-web.sh.
+        # Stage first, then diff --cached: this catches a NEW card whose
+        # generated index.html was never committed (plain `git diff` ignores
+        # untracked files and would pass).
+        run: |
+          ./scripts/build-web.sh
+          git add -A -- 'src/cheatsheets/*/index.html'
+          git diff --cached --exit-code -- 'src/cheatsheets/*/index.html' \
+            || { echo "::error::index.html is stale or uncommitted — run ./scripts/build-web.sh and commit."; exit 1; }
       - uses: browser-actions/setup-chrome@v1
         id: chrome
       - name: Generate PDFs
