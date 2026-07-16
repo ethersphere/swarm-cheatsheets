@@ -41,10 +41,13 @@ no build runtime — mirror justdeploy's no-build, static, Swarm-hosted approach
 
 ```
 swarm-cheatsheets/
-├── src/cheatsheets/<topic>/   # one folder per cheatsheet (index.html + content)
+├── src/cheatsheets/<topic>/   # one folder per cheatsheet:
+│     cheatsheet.html          #   the self-contained card — SOURCE OF TRUTH (extractable)
+│     chrome.css toolbar.html footer.html  # hosted-page-only partials
+│     index.html               #   the web page — GENERATED from cheatsheet.html (do not edit)
 ├── assets/                    # vendored fonts + qrcode lib (offline-deterministic)
 ├── dist/                      # generated PDFs (+ the v1 reference)
-├── scripts/                   # pdf.sh (HTML → A4 PDF), check-links.sh
+├── scripts/                   # build-web.sh (card → index.html), pdf.sh (HTML → A4 PDF), check-links.sh
 ├── docs/PLAN.md               # the build plan and content roadmap
 └── CLAUDE.md
 ```
@@ -66,11 +69,17 @@ swarm-cheatsheets/
 
 ## Running / generating
 
-No build step to view: open `src/cheatsheets/<topic>/index.html` in a browser, or
-`python3 -m http.server 8080`.
+**Single source per card.** `cheatsheet.html` is the self-contained card and the one place
+to edit content — an external app extracts it verbatim. The hosted `index.html` is
+**generated** from it by `./scripts/build-web.sh`, which splices in the screen-only chrome
+(`chrome.css`, `toolbar.html`, `footer.html`). Never hand-edit `index.html`; CI fails if it
+drifts from `cheatsheet.html`. Rerun `./scripts/build-web.sh` after editing the card or partials.
 
-**Generate the PDFs** (HTML → A4 PDF via headless Chrome): `./scripts/pdf.sh`
-regenerates every card into `dist/` (`./scripts/pdf.sh <topic>` for one card). To export
+No build step to view: open `src/cheatsheets/<topic>/cheatsheet.html` (the card) or its
+generated `index.html` in a browser, or `python3 -m http.server 8080`.
+
+**Generate the PDFs** (HTML → A4 PDF via headless Chrome): `./scripts/pdf.sh` renders each
+card's `cheatsheet.html` into `dist/` (`./scripts/pdf.sh <topic>` for one card). To export
 by hand: open it in Chrome → `⌘P` → Save as PDF → A4 → margins **None** → Background
 graphics **ON**. Fonts and the QR library are vendored in `assets/` — no network needed;
 QR codes render client-side at 4× for print sharpness.
